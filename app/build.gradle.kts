@@ -1,5 +1,7 @@
 plugins {
     id("com.android.application")
+    id("kotlin-kapt")
+    id ("androidx.navigation.safeargs")
     id("org.jetbrains.kotlin.android")
 }
 
@@ -49,6 +51,18 @@ dependencies {
 
     // splash api
     implementation("androidx.core:core-splashscreen:1.0.1")
+
+    // datastore
+    implementation("androidx.datastore:datastore-preferences:1.0.0")
+
+    // dagger hilt
+    implementation("com.google.dagger:hilt-android:2.48")
+    kapt("com.google.dagger:hilt-android-compiler:2.48")
+
+    // cameraX
+    implementation("androidx.camera:camera-camera2:1.3.0")
+    implementation("androidx.camera:camera-lifecycle:1.3.0")
+    implementation("androidx.camera:camera-view:1.3.0")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
