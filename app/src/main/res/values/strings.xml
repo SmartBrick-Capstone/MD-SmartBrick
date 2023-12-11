@@ -23,4 +23,6 @@
     <string name="today">Today</string>
     <string name="article">Article</string>
     <string name="account">Account</string>
+    <string name="password_strict">Use at least 8 characters</string>
+    <string name="incorrect_format">Incorrect format</string>
 </resources>
