@@ -47,7 +47,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/email_text_input_layout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
@@ -57,10 +57,11 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView">
 
-            <com.google.android.material.textfield.TextInputEditText
+            <com.github.emmpann.smartbrick.core.component.CustomEditText
                 android:id="@+id/ed_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:ems="10"
                 android:inputType="textEmailAddress" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -78,7 +79,7 @@
             app:layout_constraintTop_toBottomOf="@+id/email_text_input_layout"
             app:passwordToggleEnabled="true">
 
-            <com.google.android.material.textfield.TextInputEditText
+            <com.github.emmpann.smartbrick.core.component.CustomEditText
                 android:id="@+id/ed_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

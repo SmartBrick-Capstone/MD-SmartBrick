@@ -8,7 +8,7 @@
         android:title="@string/home" />
 
     <item
-        android:id="@+id/cameraFragment"
+        android:id="@+id/detailFragment"
         android:icon="@drawable/ic_camera"
         android:title="@string/camera" />
 

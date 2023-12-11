@@ -53,16 +53,16 @@
         android:id="@+id/cameraFragment"
         android:name="com.github.emmpann.smartbrick.feature.camera.CameraFragment"
         android:label="fragment_camera"
-        tools:layout="@layout/fragment_camera" >
-        <action
-            android:id="@+id/action_cameraFragment_to_detailFragment"
-            app:destination="@id/detailFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_camera" />
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.github.emmpann.smartbrick.feature.detail.DetailFragment"
         android:label="fragment_detail"
-        tools:layout="@layout/fragment_detail" />
+        tools:layout="@layout/fragment_detail" >
+        <action
+            android:id="@+id/action_detailFragment_to_cameraFragment"
+            app:destination="@id/cameraFragment" />
+    </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.github.emmpann.smartbrick.feature.profile.ProfileFragment"

@@ -9,10 +9,8 @@ import androidx.appcompat.widget.AppCompatEditText
 import com.github.emmpann.smartbrick.R
 
 class CustomEditText : AppCompatEditText {
-
     private fun init() {
-
-        addTextChangedListener(object : TextWatcher {
+        addTextChangedListener( object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
 
             }
@@ -38,6 +36,7 @@ class CustomEditText : AppCompatEditText {
             override fun afterTextChanged(p0: Editable?) {
 
             }
+
         })
     }
 
@@ -48,7 +47,6 @@ class CustomEditText : AppCompatEditText {
     private fun hideError() {
         error = null
     }
-
     constructor(context: Context) : super(context) {
         init()
     }
