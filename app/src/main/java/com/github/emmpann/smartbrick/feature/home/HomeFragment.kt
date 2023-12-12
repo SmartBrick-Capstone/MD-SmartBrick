@@ -7,7 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.github.emmpann.smartbrick.R
 import com.github.emmpann.smartbrick.databinding.FragmentHomeBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding

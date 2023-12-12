@@ -7,7 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.github.emmpann.smartbrick.R
 import com.github.emmpann.smartbrick.databinding.FragmentRegisterBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class RegisterFragment : Fragment() {
 
     private lateinit var binding: FragmentRegisterBinding

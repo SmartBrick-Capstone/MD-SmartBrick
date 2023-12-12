@@ -25,4 +25,10 @@
     <string name="account">Account</string>
     <string name="password_strict">Use at least 8 characters</string>
     <string name="incorrect_format">Incorrect format</string>
+    <string name="more">More</string>
+    <string name="data_verification">Data Verification</string>
+    <string name="help_support"><![CDATA[Help & Support]]></string>
+    <string name="about_app">About App</string>
+    <string name="log_out">Log Out</string>
+    <string name="history">History</string>
 </resources>

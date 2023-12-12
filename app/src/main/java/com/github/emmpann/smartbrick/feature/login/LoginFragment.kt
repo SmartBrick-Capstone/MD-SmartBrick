@@ -5,12 +5,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.github.emmpann.smartbrick.R
+import com.github.emmpann.smartbrick.core.data.remote.response.ResultApi
 import com.github.emmpann.smartbrick.databinding.FragmentLoginBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class LoginFragment : Fragment() {
 
+    private val viewModel: LoginViewModel by viewModels()
     private lateinit var binding: FragmentLoginBinding
 
     override fun onCreateView(
@@ -26,6 +31,25 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setupAction()
+        setupObserver()
+    }
+
+    private fun setupObserver() {
+        viewModel.loginResponse.observe(viewLifecycleOwner) { response ->
+            when (response) {
+                is ResultApi.Success -> {
+                    viewModel.setToken(response.data.token)
+                }
+
+                is ResultApi.Loading -> {
+
+                }
+
+                is ResultApi.Error -> {
+
+                }
+            }
+        }
     }
 
     private fun setupAction() {
@@ -34,7 +58,9 @@ class LoginFragment : Fragment() {
         }
 
         binding.btnLogin.setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+            val email = binding.edEmail.text.toString()
+            val password = binding.edPassword.toString()
+            viewModel.login(email, password)
         }
     }
 }

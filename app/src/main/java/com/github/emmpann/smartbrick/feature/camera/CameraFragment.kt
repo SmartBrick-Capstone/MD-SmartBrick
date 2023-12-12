@@ -27,7 +27,9 @@ import com.github.emmpann.smartbrick.core.util.CameraUtil.CAMERA_BUNDLE_KEY
 import com.github.emmpann.smartbrick.core.util.CameraUtil.CAMERA_REQUEST_KEY
 import com.github.emmpann.smartbrick.core.util.ImageUtil.createCustomTempFile
 import com.github.emmpann.smartbrick.databinding.FragmentCameraBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class CameraFragment : Fragment() {
 
     private lateinit var binding: FragmentCameraBinding
