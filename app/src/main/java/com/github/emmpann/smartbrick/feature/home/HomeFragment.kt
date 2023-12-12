@@ -43,18 +43,23 @@ class HomeFragment : Fragment() {
         binding.rvArticle.adapter = articleAdapter
         articleAdapter.setOnItemClickCallback(object : ArticleAdapter.OnItemClickCallback {
             override fun onItemClicked(article: Article) {
-                val toDetailArticle = HomeFragmentDirections.actionHomeFragmentToDetailArticleFragment()
+                val toDetailArticle =
+                    HomeFragmentDirections.actionHomeFragmentToDetailArticleFragment()
+                toDetailArticle.articleId = article.id
                 findNavController().navigate(toDetailArticle)
             }
 
         })
 
-        binding.rvToday.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        binding.rvToday.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         bannerAdapter = BannerAdapter()
         binding.rvToday.adapter = bannerAdapter
         bannerAdapter.setOnItemClickCallback(object : BannerAdapter.OnItemClickCallback {
             override fun onItemClicked(article: Article) {
-                val toDetailArticle = HomeFragmentDirections.actionHomeFragmentToDetailArticleFragment()
+                val toDetailArticle =
+                    HomeFragmentDirections.actionHomeFragmentToDetailArticleFragment()
+                toDetailArticle.articleId = article.id
                 findNavController().navigate(toDetailArticle)
             }
         })
@@ -66,7 +71,7 @@ class HomeFragment : Fragment() {
         }
 
         viewModel.article.observe(viewLifecycleOwner) {
-            when(it) {
+            when (it) {
                 is ResultApi.Success -> {
                     articleAdapter.submitList(it.data.listArticle)
                     bannerAdapter.submitList(it.data.listArticle)

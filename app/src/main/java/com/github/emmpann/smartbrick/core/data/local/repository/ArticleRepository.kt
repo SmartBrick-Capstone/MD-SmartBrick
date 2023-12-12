@@ -1,5 +1,6 @@
 package com.github.emmpann.smartbrick.core.data.local.repository
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import com.github.emmpann.smartbrick.core.data.remote.response.Article
 import com.github.emmpann.smartbrick.core.data.remote.response.ArticleResponse
@@ -20,6 +21,20 @@ class ArticleRepository(
     fun getAllArticle() = flow {
         try {
             emit(ResultApi.Success(ArticleResponse(articleList, false, "success")))
+        } catch (e: HttpException) {
+            val errorBody = e.response()?.errorBody()?.string()
+            val errorResponse = Gson().fromJson(errorBody, LoginResponse::class.java)
+            emit(ResultApi.Error(errorResponse.message))
+        }
+    }.onStart {
+        emit(ResultApi.Loading)
+    }.flowOn(Dispatchers.IO)
+
+    fun getDetailArticle(id: String) = flow {
+        try {
+            val article = articleList.find { it.id == id }
+            Log.d("title", article?.title.toString())
+            emit(ResultApi.Success(articleList.find { it.id == id }))
         } catch (e: HttpException) {
             val errorBody = e.response()?.errorBody()?.string()
             val errorResponse = Gson().fromJson(errorBody, LoginResponse::class.java)

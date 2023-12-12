@@ -76,5 +76,10 @@
         android:id="@+id/detailArticleFragment"
         android:name="com.github.emmpann.smartbrick.feature.article.DetailArticleFragment"
         android:label="fragment_detail_article"
-        tools:layout="@layout/fragment_detail_article" />
+        tools:layout="@layout/fragment_detail_article" >
+        <argument
+            android:name="articleId"
+            app:argType="string"
+            android:defaultValue='""' />
+    </fragment>
 </navigation>
