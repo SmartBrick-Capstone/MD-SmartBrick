@@ -28,7 +28,7 @@
         <TextView
             android:id="@+id/tv_welcome"
             android:layout_marginTop="8dp"
-            style="@style/TextAppearance.Material3.TitleMedium"
+            style="@style/TextAppearance.Material3.BodyLarge"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/lets_contribute_to_our_earth"
@@ -143,7 +143,7 @@
 
         <TextView
             android:id="@+id/tv_more"
-            style="@style/TextAppearance.Material3.TitleLarge"
+            style="@style/TextAppearance.Material3.TitleMedium"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="26dp"
@@ -168,7 +168,7 @@
 
         <TextView
             android:id="@+id/textView6"
-            style="@style/TextAppearance.Material3.TitleLarge"
+            style="@style/TextAppearance.Material3.TitleMedium"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
