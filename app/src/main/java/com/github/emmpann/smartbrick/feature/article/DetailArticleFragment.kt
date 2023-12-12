@@ -41,6 +41,7 @@ class DetailArticleFragment : Fragment() {
                     with(binding) {
                         tvDetailArticleTitle.text = it.data?.title
                         tvDetailArticleDesc.text = it.data?.description
+                        tvDetailArticleDate.text = it.data?.date
                         Glide.with(requireContext()).load(it.data?.photoUrl).into(ivDetailArticle)
                     }
 //                    showLoading(false)

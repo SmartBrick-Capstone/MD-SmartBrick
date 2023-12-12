@@ -37,6 +37,20 @@
             tools:text="Pantai di kota Lampung ini merupakan pantai terkotor No.1 di Indonesia" />
 
         <TextView
+            android:id="@+id/tv_detail_article_date"
+            style="@style/TextAppearance.Material3.BodySmall"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:textColor="#8A000000"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_detail_article_title"
+            tools:text="@tools:sample/date/ddmmyy" />
+
+        <TextView
             android:id="@+id/tv_detail_article_desc"
             style="@style/TextAppearance.Material3.BodyMedium"
             android:layout_width="0dp"
@@ -47,7 +61,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_detail_article_title"
+            app:layout_constraintTop_toBottomOf="@+id/tv_detail_article_date"
             tools:text="@tools:sample/lorem/random" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>
