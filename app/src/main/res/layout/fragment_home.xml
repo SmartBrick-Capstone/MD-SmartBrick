@@ -19,6 +19,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="16dp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -26,13 +27,14 @@
 
         <TextView
             android:id="@+id/tv_welcome"
+            android:layout_marginTop="8dp"
             style="@style/TextAppearance.Material3.TitleMedium"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:text="@string/lets_contribute_to_our_earth"
             app:layout_constraintEnd_toEndOf="@+id/tv_name"
             app:layout_constraintStart_toStartOf="@+id/tv_name"
-            app:layout_constraintTop_toBottomOf="@+id/tv_name"
-            tools:text="Let's contribute to our earth." />
+            app:layout_constraintTop_toBottomOf="@+id/tv_name" />
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/card1"
@@ -150,8 +152,7 @@
             app:layout_constraintEnd_toEndOf="@+id/tv_welcome"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/tv_welcome"
-            app:layout_constraintTop_toBottomOf="@+id/card1"
-            tools:text="Today" />
+            app:layout_constraintTop_toBottomOf="@+id/card1" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_today"
@@ -175,8 +176,7 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/rv_today"
             app:layout_constraintStart_toStartOf="@+id/rv_today"
-            app:layout_constraintTop_toBottomOf="@+id/rv_today"
-            tools:text="Article" />
+            app:layout_constraintTop_toBottomOf="@+id/rv_today" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_article"
