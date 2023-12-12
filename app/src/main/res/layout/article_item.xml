@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginHorizontal="16dp"
     android:layout_marginBottom="8dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -11,7 +12,7 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/tv_title"
+            android:id="@+id/tv_article_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -21,13 +22,13 @@
             android:maxLines="1"
             android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
             android:textColor="#DE000000"
-            app:layout_constraintEnd_toStartOf="@+id/ic_article"
+            app:layout_constraintEnd_toStartOf="@+id/iv_article"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Sampah di sungai musi banyak sekali" />
 
         <TextView
-            android:id="@+id/tv_desc"
+            android:id="@+id/tv_article_desc"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
@@ -36,13 +37,13 @@
             android:textAppearance="@style/TextAppearance.Material3.BodySmall"
             android:textColor="#8A000000"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/tv_title"
-            app:layout_constraintTop_toBottomOf="@+id/tv_title"
-            app:layout_constraintEnd_toEndOf="@id/tv_title"
+            app:layout_constraintEnd_toEndOf="@id/tv_article_title"
+            app:layout_constraintStart_toStartOf="@+id/tv_article_title"
+            app:layout_constraintTop_toBottomOf="@+id/tv_article_title"
             tools:text="banyak orang yang belum sadar akan hal tersebut cuy, padahal sampah merupakan masalah yang serius" />
 
         <ImageView
-            android:id="@+id/ic_article"
+            android:id="@+id/iv_article"
             android:layout_width="90dp"
             android:layout_height="90dp"
             android:scaleType="centerCrop"

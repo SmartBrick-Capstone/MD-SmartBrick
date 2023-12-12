@@ -11,7 +11,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/ic_article"
+            android:id="@+id/iv_article"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:scaleType="centerCrop"
@@ -33,18 +33,18 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/date"
+            android:id="@+id/tv_banner_date"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.Material3.BodySmall"
-            android:textColor="#8A000000"
-            app:layout_constraintBottom_toTopOf="@id/supporting_text"
-            app:layout_constraintEnd_toEndOf="@+id/supporting_text"
-            app:layout_constraintStart_toStartOf="@+id/supporting_text"
+            android:textColor="#9EFFFFFF"
+            app:layout_constraintBottom_toTopOf="@id/tv_banner_title"
+            app:layout_constraintEnd_toEndOf="@+id/tv_banner_title"
+            app:layout_constraintStart_toStartOf="@+id/tv_banner_title"
             tools:text="10 Dec 23" />
 
         <TextView
-            android:id="@+id/supporting_text"
+            android:id="@+id/tv_banner_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -52,9 +52,9 @@
             android:layout_marginBottom="16dp"
             android:ellipsize="end"
             android:maxLines="2"
-            android:textColor="#FFFF"
+            android:textColor="#DFFFFFFF"
             android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
-            app:layout_constraintBottom_toBottomOf="@id/ic_article"
+            app:layout_constraintBottom_toBottomOf="@id/iv_article"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:text="Sampah meluap di sungai musi menjadi masalah yang muncul setiap musim hujan di kota palembang" />
