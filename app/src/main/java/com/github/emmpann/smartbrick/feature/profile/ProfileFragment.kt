@@ -29,24 +29,29 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setupObserver()
         setEventClickListener()
+    }
+
+    private fun setupObserver() {
+
     }
 
     private fun setEventClickListener() {
         binding.btnHistory.setOnClickListener {
-            TODO("not implemented")
+            TODO("Not yet implemented")
         }
         binding.btnVerification.setOnClickListener {
-            TODO("not implemented")
+            TODO("Not yet implemented")
         }
         binding.btnHelpSupport.setOnClickListener {
-            TODO("not implemented")
+            TODO("Not yet implemented")
         }
         binding.btnAboutApp.setOnClickListener {
-            TODO("not implemented")
+            TODO("Not yet implemented")
         }
         binding.btnAboutApp.setOnClickListener {
-            TODO("not implemented")
+            TODO("Not yet implemented")
         }
         binding.btnLogout.setOnClickListener {
             viewModel.clearSession()

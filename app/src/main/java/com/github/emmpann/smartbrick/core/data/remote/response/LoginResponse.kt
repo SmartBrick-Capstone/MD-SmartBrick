@@ -2,7 +2,7 @@ package com.github.emmpann.smartbrick.core.data.remote.response
 
 import com.google.gson.annotations.SerializedName
 
-data class RequestLoginResponse(
+data class LoginResponse(
 
 	@field:SerializedName("success")
 	val success: Boolean,
@@ -10,6 +10,12 @@ data class RequestLoginResponse(
 	@field:SerializedName("message")
 	val message: String,
 
-	@field:SerializedName("token")
-	val token: String
+	@field:SerializedName("loginResult")
+	val loginResult: LoginResult
+)
+
+data class LoginResult(
+	val id: String,
+	val token: String,
+	val name: String,
 )

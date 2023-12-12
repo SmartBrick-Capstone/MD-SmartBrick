@@ -38,7 +38,7 @@ class LoginFragment : Fragment() {
         viewModel.loginResponse.observe(viewLifecycleOwner) { response ->
             when (response) {
                 is ResultApi.Success -> {
-                    viewModel.setToken(response.data.token)
+                    viewModel.setSession(response.data.loginResult)
                 }
 
                 is ResultApi.Loading -> {

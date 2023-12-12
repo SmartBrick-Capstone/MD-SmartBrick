@@ -1,6 +1,6 @@
 package com.github.emmpann.smartbrick.di
 
-import com.github.emmpann.smartbrick.core.data.local.repository.AuthRepository
+import com.github.emmpann.smartbrick.core.data.local.repository.UserRepository
 import com.github.emmpann.smartbrick.core.data.remote.retrofit.ApiService
 import dagger.Module
 import dagger.Provides
@@ -14,5 +14,5 @@ class RepositoryModule {
 
     @Provides
     @Singleton
-    fun provideAuthRepository(apiService: ApiService): AuthRepository = AuthRepository(apiService)
+    fun provideUserRepository(apiService: ApiService): UserRepository = UserRepository(apiService)
 }

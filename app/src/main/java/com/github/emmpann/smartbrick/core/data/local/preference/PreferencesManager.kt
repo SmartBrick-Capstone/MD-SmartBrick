@@ -4,6 +4,9 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
+import com.github.emmpann.smartbrick.core.data.remote.request.LoginRequest
+import com.github.emmpann.smartbrick.core.data.remote.response.LoginResponse
+import com.github.emmpann.smartbrick.core.data.remote.response.LoginResult
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
@@ -17,9 +20,23 @@ class PreferencesManager @Inject constructor(
         }
     }
 
-    suspend fun setToken(token: String) {
+    fun getName(): Flow<String> {
+        return dataStore.data.map { preferences ->
+            preferences[NAME] ?: ""
+        }
+    }
+
+    fun getUserId(): Flow<String> {
+        return dataStore.data.map { preferences ->
+            preferences[USER_ID] ?: ""
+        }
+    }
+
+    suspend fun setSession(user: LoginResult) {
         dataStore.edit { preferences ->
-            preferences[TOKEN_KEY] = token
+            preferences[USER_ID] = user.id
+            preferences[TOKEN_KEY] = user.token
+            preferences[NAME] = user.name
         }
     }
 
@@ -30,6 +47,8 @@ class PreferencesManager @Inject constructor(
     }
 
     companion object {
+        private val USER_ID = stringPreferencesKey("user_id")
+        private val NAME = stringPreferencesKey("name")
         private val TOKEN_KEY = stringPreferencesKey("token_key")
     }
 }
