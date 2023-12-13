@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.github.emmpann.smartbrick.R
 import com.github.emmpann.smartbrick.core.data.remote.response.ResultApi
@@ -31,6 +32,13 @@ class DetailArticleFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setupObserver()
+        setClickListener()
+    }
+
+    private fun setClickListener() {
+        binding.btnBack.setOnClickListener {
+            findNavController().popBackStack()
+        }
     }
 
     private fun setupObserver() {
