@@ -9,7 +9,7 @@
         android:id="@+id/iv_data_verif"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/iconoir_badge_check"
+        android:src="@drawable/ic_verification_profile"
         app:layout_constraintEnd_toStartOf="@id/tv_data_verif"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -32,7 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toEndOf="@id/tv_data_verif"
-        android:src="@drawable/baseline_arrow_forward_ios_24"
+        android:src="@drawable/ic_right_arrow"
         app:layout_constraintBottom_toBottomOf="@+id/tv_data_verif"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tv_data_verif" />

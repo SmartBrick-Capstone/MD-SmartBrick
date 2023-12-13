@@ -6,36 +6,26 @@
     android:layout_height="match_parent"
     tools:context=".feature.profile.ProfileFragment">
 
-    <ImageView
-        android:id="@+id/iv_back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:src="@drawable/ic_back"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/tv_profile"
         style="@style/TextAppearance.Material3.TitleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:text="@string/profile"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/iv_back"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/iv_back" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/iv_profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="82dp"
+        android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_profile"
         tools:src="@tools:sample/avatars" />
 
     <TextView
@@ -95,7 +85,7 @@
             android:id="@+id/iv_history"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/mdi_clipboard_text_history_outline"
+            android:src="@drawable/ic_history_profile"
             app:layout_constraintEnd_toStartOf="@id/tv_history"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -117,7 +107,7 @@
             android:id="@+id/iv_arrow_history"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/baseline_arrow_forward_ios_24"
+            android:src="@drawable/ic_right_arrow"
             app:layout_constraintBottom_toBottomOf="@+id/tv_history"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/tv_history"
@@ -140,7 +130,7 @@
             android:id="@+id/iv_data_verif"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/iconoir_badge_check"
+            android:src="@drawable/ic_verification_profile"
             app:layout_constraintEnd_toStartOf="@id/tv_data_verif"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -162,7 +152,7 @@
             android:id="@+id/iv_arrow_data_verif"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/baseline_arrow_forward_ios_24"
+            android:src="@drawable/ic_right_arrow"
             app:layout_constraintBottom_toBottomOf="@+id/tv_data_verif"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/tv_data_verif"
@@ -199,7 +189,7 @@
             android:id="@+id/iv_help_support"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/grommet_icons_info"
+            android:src="@drawable/ic_help_support_profile"
             app:layout_constraintEnd_toStartOf="@id/tv_help_support"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -221,7 +211,7 @@
             android:id="@+id/iv_arrow_help_support"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/baseline_arrow_forward_ios_24"
+            android:src="@drawable/ic_right_arrow"
             app:layout_constraintBottom_toBottomOf="@+id/tv_help_support"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/tv_help_support"
@@ -244,7 +234,7 @@
             android:id="@+id/iv_about"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ri_service_line"
+            android:src="@drawable/ic_about_app_profile"
             app:layout_constraintEnd_toStartOf="@id/tv_about"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -266,7 +256,7 @@
             android:id="@+id/iv_arrow_about"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/baseline_arrow_forward_ios_24"
+            android:src="@drawable/ic_right_arrow"
             app:layout_constraintBottom_toBottomOf="@+id/tv_about"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/tv_about"
@@ -288,7 +278,7 @@
             android:id="@+id/iv_logout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ph_sign_out_bold"
+            android:src="@drawable/ic_logout_profile"
             app:layout_constraintEnd_toStartOf="@id/tv_logout"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

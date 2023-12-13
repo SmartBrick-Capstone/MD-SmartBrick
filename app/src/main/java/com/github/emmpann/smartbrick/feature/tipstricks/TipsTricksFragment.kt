@@ -1,4 +1,4 @@
-package com.github.emmpann.smartbrick.tipstricks
+package com.github.emmpann.smartbrick.feature.tipstricks
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -36,7 +36,7 @@ class TipsTricksFragment : Fragment() {
 
     private fun setupObserver() {
         with(binding) {
-            ivTipstricks.setImageResource(R.drawable.ic_trashcan_big)
+            ivTipstricks.setImageResource(R.drawable.ic_large_trashcan)
             tvTipstricks.text = ""
             tvDesc.text = ""
         }

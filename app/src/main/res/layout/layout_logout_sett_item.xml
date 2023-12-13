@@ -9,7 +9,7 @@
         android:id="@+id/iv_logout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ph_sign_out_bold"
+        android:src="@drawable/ic_logout_profile"
         app:layout_constraintEnd_toStartOf="@id/tv_logout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

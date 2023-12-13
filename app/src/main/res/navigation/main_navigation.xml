@@ -104,7 +104,7 @@
     </fragment>
     <fragment
         android:id="@+id/tipsTricksFragment"
-        android:name="com.github.emmpann.smartbrick.tipstricks.TipsTricksFragment"
+        android:name="com.github.emmpann.smartbrick.feature.tipstricks.TipsTricksFragment"
         android:label="fragment_tips_tricks"
         tools:layout="@layout/fragment_tips_tricks" >
         <argument

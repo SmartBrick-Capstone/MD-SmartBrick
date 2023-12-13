@@ -9,7 +9,7 @@
         android:id="@+id/iv_about"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ri_service_line"
+        android:src="@drawable/ic_about_app_profile"
         app:layout_constraintEnd_toStartOf="@id/tv_about"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -31,7 +31,7 @@
         android:id="@+id/iv_arrow_about"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/baseline_arrow_forward_ios_24"
+        android:src="@drawable/ic_right_arrow"
         app:layout_constraintBottom_toBottomOf="@+id/tv_about"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/tv_about"
