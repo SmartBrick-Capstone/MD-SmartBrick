@@ -39,7 +39,7 @@ class ProfileFragment : Fragment() {
 
     private fun setEventClickListener() {
         binding.btnHistory.setOnClickListener {
-            TODO("Not yet implemented")
+            findNavController().navigate(R.id.action_profileFragment_to_historyFragment)
         }
         binding.btnVerification.setOnClickListener {
             TODO("Not yet implemented")
