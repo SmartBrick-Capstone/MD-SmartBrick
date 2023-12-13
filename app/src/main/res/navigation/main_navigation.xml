@@ -48,20 +48,28 @@
         <action
             android:id="@+id/action_homeFragment_to_detailArticleFragment"
             app:destination="@id/detailArticleFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_tipsTricksFragment"
+            app:destination="@id/tipsTricksFragment" />
     </fragment>
     <fragment
         android:id="@+id/cameraFragment"
         android:name="com.github.emmpann.smartbrick.feature.camera.CameraFragment"
         android:label="fragment_camera"
-        tools:layout="@layout/fragment_camera" />
+        tools:layout="@layout/fragment_camera" >
+        <action
+            android:id="@+id/action_cameraFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.github.emmpann.smartbrick.feature.detail.DetailFragment"
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail" >
-        <action
-            android:id="@+id/action_detailFragment_to_cameraFragment"
-            app:destination="@id/cameraFragment" />
+        <argument
+            android:name="imageUri"
+            app:argType="string"
+            android:defaultValue='""' />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -79,6 +87,25 @@
         tools:layout="@layout/fragment_detail_article" >
         <argument
             android:name="articleId"
+            app:argType="string"
+            android:defaultValue='""' />
+    </fragment>
+    <fragment
+        android:id="@+id/scanFragment"
+        android:name="com.github.emmpann.smartbrick.feature.scan.ScanFragment"
+        android:label="fragment_scan"
+        tools:layout="@layout/fragment_scan" >
+        <action
+            android:id="@+id/action_scanFragment_to_cameraFragment"
+            app:destination="@id/cameraFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/tipsTricksFragment"
+        android:name="com.github.emmpann.smartbrick.tipstricks.TipsTricksFragment"
+        android:label="fragment_tips_tricks"
+        tools:layout="@layout/fragment_tips_tricks" >
+        <argument
+            android:name="tipstricksId"
             app:argType="string"
             android:defaultValue='""' />
     </fragment>

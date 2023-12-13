@@ -43,8 +43,7 @@ class HomeFragment : Fragment() {
         binding.rvArticle.adapter = articleAdapter
         articleAdapter.setOnItemClickCallback(object : ArticleAdapter.OnItemClickCallback {
             override fun onItemClicked(article: Article) {
-                val toDetailArticle =
-                    HomeFragmentDirections.actionHomeFragmentToDetailArticleFragment()
+                val toDetailArticle = HomeFragmentDirections.actionHomeFragmentToDetailArticleFragment()
                 toDetailArticle.articleId = article.id
                 findNavController().navigate(toDetailArticle)
             }

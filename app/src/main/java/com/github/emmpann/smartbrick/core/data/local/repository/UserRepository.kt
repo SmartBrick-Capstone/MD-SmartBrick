@@ -52,4 +52,8 @@ class UserRepository(
     }.onStart {
         emit(ResultApi.Loading)
     }.flowOn(Dispatchers.IO)
+
+
 }
+
+val user = LoginResult("id1", "toket123", "eyfan")

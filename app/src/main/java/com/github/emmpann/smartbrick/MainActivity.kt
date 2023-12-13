@@ -40,6 +40,9 @@ class MainActivity : AppCompatActivity() {
                 R.id.profileFragment -> {
                     binding.navView.visibility = View.VISIBLE
                 }
+                R.id.scanFragment -> {
+                    binding.navView.visibility = View.VISIBLE
+                }
                 else -> {
                     binding.navView.visibility = View.GONE
                 }

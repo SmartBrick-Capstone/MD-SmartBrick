@@ -27,6 +27,7 @@ import com.github.emmpann.smartbrick.core.util.CameraUtil.CAMERA_BUNDLE_KEY
 import com.github.emmpann.smartbrick.core.util.CameraUtil.CAMERA_REQUEST_KEY
 import com.github.emmpann.smartbrick.core.util.ImageUtil.createCustomTempFile
 import com.github.emmpann.smartbrick.databinding.FragmentCameraBinding
+import com.github.emmpann.smartbrick.feature.detail.DetailFragmentArgs
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -128,16 +129,20 @@ class CameraFragment : Fragment() {
                         Toast.LENGTH_SHORT
                     ).show()
 
-                    setFragmentResult(
-                        CAMERA_REQUEST_KEY,
-                        bundleOf(
-                            Pair(
-                                CAMERA_BUNDLE_KEY,
-                                output.savedUri.toString()
-                            )
-                        )
-                    )
-                    findNavController().popBackStack()
+                    val toDetailFragment = CameraFragmentDirections.actionCameraFragmentToDetailFragment()
+                    toDetailFragment.imageUri = output.savedUri.toString()
+                    findNavController().navigate(toDetailFragment)
+
+//                    setFragmentResult(
+//                        CAMERA_REQUEST_KEY,
+//                        bundleOf(
+//                            Pair(
+//                                CAMERA_BUNDLE_KEY,
+//                                output.savedUri.toString()
+//                            )
+//                        )
+//                    )
+//                    findNavController().popBackStack()
                 }
 
                 override fun onError(exception: ImageCaptureException) {

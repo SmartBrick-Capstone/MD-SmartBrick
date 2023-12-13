@@ -3,54 +3,41 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/md_theme_light_background">
-
-    <ImageView
-        android:id="@+id/ic_back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_back_black"
-        android:layout_marginTop="32dp"
-        android:layout_marginStart="32dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/iv_detail_plastic_result"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginHorizontal="116dp"
+        android:layout_marginTop="64dp"
         android:scaleType="centerCrop"
         android:src="@drawable/frame_18"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
         app:layout_constraintDimensionRatio="5:5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
     <TextView
         android:id="@+id/textView3"
         style="@style/TextAppearance.Material3.TitleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="@string/scanning_result"
+        android:text="@string/scan_picture"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btn_back"
+        android:id="@+id/btn_camera"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="64dp"
         android:layout_marginEnd="32dp"
-        android:text="@string/back_to_home"
+        android:text="@string/scan_picture"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"

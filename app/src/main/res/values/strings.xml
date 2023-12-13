@@ -32,4 +32,8 @@
     <string name="log_out">Log Out</string>
     <string name="history">History</string>
     <string name="lets_contribute_to_our_earth">Let\'s contribute to our earth.</string>
+    <string name="scan_picture">Scan Picture</string>
+    <string name="back_to_home">Back to Home</string>
+    <string name="scanning_result">Scanning Result</string>
+    <string name="tips_tricks"><![CDATA[Tips & Tricks]]></string>
 </resources>

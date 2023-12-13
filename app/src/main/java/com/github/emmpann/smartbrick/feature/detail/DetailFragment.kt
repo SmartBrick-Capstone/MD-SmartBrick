@@ -36,37 +36,23 @@ class DetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Log.d(
-            "DetailFragment",
-            "opened detail page with: current image ${viewModel.currentImageUri.value}"
-        )
 
 
-        binding.btnCamera.setOnClickListener {
-            navigateToCamera()
-        }
-
+        setClickListener()
+        setupObserver()
     }
 
-    private fun navigateToCamera() {
-        Log.d(
-            "DetailFragment2",
-            "opened detail page with: current image ${viewModel.currentImageUri.value}"
-        )
-        setFragmentResultListener(CAMERA_REQUEST_KEY) { _, bundle ->
-            val result = bundle.getString(CAMERA_BUNDLE_KEY)?.toUri()
-            result?.let {
-                viewModel.setCurrentImage(it)
-                showImage(it)
-            } ?: run {
-//                showToast("No image captured")
-            }
+    private fun setupObserver() {
+        viewModel.setCurrentImage(DetailFragmentArgs.fromBundle(arguments as Bundle).imageUri.toUri())
+        viewModel.currentImageUri.observe(viewLifecycleOwner) {
+            showImage(it)
         }
-        Log.d(
-            "DetailFragment3",
-            "opened detail page with: current image ${viewModel.currentImageUri.value}"
-        )
-        findNavController().navigate(R.id.action_detailFragment_to_cameraFragment)
+    }
+
+    private fun setClickListener() {
+        binding.btnBack.setOnClickListener {
+            findNavController().popBackStack()
+        }
     }
 
     private fun showImage(imageUri: Uri) {
@@ -81,6 +67,6 @@ class DetailFragment : Fragment() {
             @Suppress("DEPRECATION")
             MediaStore.Images.Media.getBitmap(requireContext().contentResolver, imageUri)
         }
-        binding.ivDetailPlastic.setImageBitmap(bitmap)
+        binding.ivDetailPlasticResult.setImageBitmap(bitmap)
     }
 }

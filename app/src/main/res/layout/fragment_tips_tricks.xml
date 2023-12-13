@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".tipstricks.TipsTricksFragment">
+
+    <ImageView
+        android:id="@+id/btn_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/ic_back_black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_tipstricks_title"
+        style="@style/TextAppearance.Material3.TitleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tips_tricks"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/btn_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btn_back" />
+
+    <ImageView
+        android:id="@+id/iv_tipstricks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_tipstricks_title"
+        tools:src="@drawable/ic_trashcan_big" />
+
+    <TextView
+        android:id="@+id/tv_tipstricks"
+        style="@style/TextAppearance.Material3.BodyLarge"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_tipstricks"
+        tools:text="Pemisahan Sampah yang Tepat" />
+
+    <TextView
+        android:id="@+id/tv_desc"
+        style="@style/TextAppearance.Material3.BodyMedium"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_tipstricks"
+        tools:text="Pastikan untuk memisahkan berbagai jenis sampah plastik agar dapat didaur ulang dengan lebih efisien. Gunakan wadah atau tempat yang terpisah untuk jenis plastik yang berbeda, seperti PET, HDPE, PVC, dan sebagainya." />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
