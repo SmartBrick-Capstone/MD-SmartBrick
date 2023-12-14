@@ -44,6 +44,6 @@ class NetworkModule {
     }
 
     companion object {
-        private const val BASE_URL = "https://story-api.dicoding.dev/v1/"
+        private const val BASE_URL = "http://34.101.59.198/api/"
     }
 }

@@ -43,7 +43,7 @@ class DetailArticleFragment : Fragment() {
 
     private fun setupObserver() {
         viewModel.setArticleId(DetailArticleFragmentArgs.fromBundle(arguments as Bundle).articleId)
-        viewModel.article?.observe(viewLifecycleOwner) {
+        viewModel.article.observe(viewLifecycleOwner) {
             when (it) {
                 is ResultApi.Success -> {
                     with(binding) {
