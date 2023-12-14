@@ -28,7 +28,6 @@ class LoginViewModel @Inject constructor(
         }
     }
 
-
     fun setSession(user: LoginResult) = viewModelScope.launch { preferencesManager.setSession(user) }
 
 }

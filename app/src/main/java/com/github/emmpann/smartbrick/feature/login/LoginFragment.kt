@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.github.emmpann.smartbrick.R
@@ -39,14 +40,17 @@ class LoginFragment : Fragment() {
             when (response) {
                 is ResultApi.Success -> {
                     viewModel.setSession(response.data.loginResult)
-                }
-
-                is ResultApi.Loading -> {
-
+                    btnVisibility(true)
+                    Toast.makeText(requireContext(), response.data.message, Toast.LENGTH_SHORT).show()
                 }
 
                 is ResultApi.Error -> {
+                    btnVisibility(true)
+                    Toast.makeText(requireContext(), response.error, Toast.LENGTH_SHORT).show()
+                }
 
+                is ResultApi.Loading -> {
+                    btnVisibility(false)
                 }
             }
         }
@@ -59,8 +63,13 @@ class LoginFragment : Fragment() {
 
         binding.btnLogin.setOnClickListener {
             val email = binding.edEmail.text.toString()
-            val password = binding.edPassword.toString()
+            val password = binding.edPassword.text.toString()
             viewModel.login(email, password)
         }
+    }
+
+    private fun btnVisibility(isShow: Boolean) {
+        binding.progressBar.visibility = if (isShow) View.GONE else View.VISIBLE
+        binding.btnLogin.visibility = if (isShow) View.VISIBLE else View.GONE
     }
 }

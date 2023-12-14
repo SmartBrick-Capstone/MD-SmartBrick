@@ -24,7 +24,7 @@ class ArticleRepository(
         } catch (e: HttpException) {
             val errorBody = e.response()?.errorBody()?.string()
             val errorResponse = Gson().fromJson(errorBody, LoginResponse::class.java)
-            emit(ResultApi.Error(errorResponse.message))
+            emit(ResultApi.Error(errorResponse.message.toString()))
         }
     }.onStart {
         emit(ResultApi.Loading)
@@ -38,7 +38,7 @@ class ArticleRepository(
         } catch (e: HttpException) {
             val errorBody = e.response()?.errorBody()?.string()
             val errorResponse = Gson().fromJson(errorBody, LoginResponse::class.java)
-            emit(ResultApi.Error(errorResponse.message))
+            emit(ResultApi.Error(errorResponse.message.toString()))
         }
     }.onStart {
         emit(ResultApi.Loading)
