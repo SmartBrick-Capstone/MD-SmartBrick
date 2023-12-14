@@ -16,6 +16,7 @@ class TokenInterceptor @Inject constructor(
         val token = runBlocking { preferencesManager.getToken().first() }
         val request = chain.request().newBuilder().apply {
             if (token.isNotEmpty()) header("Authorization", "Bearer $token")
+            header("Accept", "application/json")
         }
             .build()
         return chain.proceed(request)

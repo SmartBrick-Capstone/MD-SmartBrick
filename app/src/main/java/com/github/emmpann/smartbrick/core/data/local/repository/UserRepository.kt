@@ -1,10 +1,8 @@
 package com.github.emmpann.smartbrick.core.data.local.repository
 
-import android.util.Log
 import com.github.emmpann.smartbrick.core.data.remote.request.LoginRequest
 import com.github.emmpann.smartbrick.core.data.remote.request.RegisterRequest
 import com.github.emmpann.smartbrick.core.data.remote.response.LoginResponse
-import com.github.emmpann.smartbrick.core.data.remote.response.LoginResult
 import com.github.emmpann.smartbrick.core.data.remote.response.RegisterResponse
 import com.github.emmpann.smartbrick.core.data.remote.response.ResultApi
 import com.github.emmpann.smartbrick.core.data.remote.retrofit.ApiService
@@ -20,15 +18,11 @@ class UserRepository(
 ) {
     fun login(email: String, password: String) = flow {
         try {
-
             val successResponse = apiService.login(LoginRequest(email, password))
             emit(ResultApi.Success(successResponse))
         } catch (e: HttpException) {
-            Log.d("login error", e.toString())
             val errorBody = e.response()?.errorBody()?.string()
-            Log.d("login error", errorBody.toString())
             val errorResponse = Gson().fromJson(errorBody, LoginResponse::class.java)
-            Log.d("login error", errorResponse.toString())
             emit(ResultApi.Error(errorResponse.message))
         }
     }.onStart {
@@ -37,13 +31,10 @@ class UserRepository(
 
     fun register(name: String, email: String, password: String) = flow {
         try {
-            Log.d("register", "$name, $email, $password")
             val successResponse = apiService.register(RegisterRequest(name, email, password, password))
             emit(ResultApi.Success(successResponse))
         } catch (e: HttpException) {
-            Log.d("register error", e.message.toString())
             val errorBody = e.response()?.errorBody()?.string()
-            Log.d("register error", errorBody.toString())
             val errorResponse = Gson().fromJson(errorBody, RegisterResponse::class.java)
             emit(ResultApi.Error(errorResponse.message))
         }

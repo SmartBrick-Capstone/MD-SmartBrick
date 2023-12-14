@@ -33,7 +33,7 @@ class BannerAdapter : RecyclerView.Adapter<BannerAdapter.ViewHolder>() {
                 tvBannerDate.text = article.date
                 tvBannerTitle.text = article.title
                 Glide.with(binding.root.context)
-                    .load(article.photoUrl)
+                    .load(article.image)
                     .into(ivArticle)
             }
         }

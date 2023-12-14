@@ -23,7 +23,7 @@ class LoginViewModel @Inject constructor(
     val loginResponse: LiveData<ResultApi<LoginResponse>> = _loginResponse
 
     fun login(email: String, password: String) = viewModelScope.launch {
-        userRepository.login(email, password).collect() {
+        userRepository.login(email, password).collect {
             _loginResponse.value = it
         }
     }

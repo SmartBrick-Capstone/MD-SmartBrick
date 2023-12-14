@@ -14,19 +14,20 @@
         android:layout_marginTop="32dp"
         android:text="@string/profile"
         android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/iv_profile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:layout_marginTop="32dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/default_profile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_profile"
-        tools:src="@tools:sample/avatars" />
+        app:layout_constraintTop_toBottomOf="@id/tv_profile" />
 
     <TextView
         android:id="@+id/tv_username"

@@ -1,6 +1,7 @@
 package com.github.emmpann.smartbrick.feature.login
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -40,6 +41,7 @@ class LoginFragment : Fragment() {
             when (response) {
                 is ResultApi.Success -> {
                     viewModel.setSession(response.data.loginResult)
+                    Log.d("profile", "${response.data.loginResult.email}, ${response.data.loginResult.name}")
                     btnVisibility(true)
                     Toast.makeText(requireContext(), response.data.message, Toast.LENGTH_SHORT).show()
                 }

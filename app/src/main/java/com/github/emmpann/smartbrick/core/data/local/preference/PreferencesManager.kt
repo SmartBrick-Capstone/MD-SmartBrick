@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
 class PreferencesManager @Inject constructor(
-    private val dataStore: DataStore<Preferences>
+    private val dataStore: DataStore<Preferences>,
 ) {
     fun getToken(): Flow<String> {
         return dataStore.data.map { preferences ->
@@ -21,6 +21,12 @@ class PreferencesManager @Inject constructor(
     fun getName(): Flow<String> {
         return dataStore.data.map { preferences ->
             preferences[NAME] ?: ""
+        }
+    }
+
+    fun getEmail(): Flow<String> {
+        return dataStore.data.map { preferences ->
+            preferences[EMAIL] ?: ""
         }
     }
 
@@ -35,6 +41,7 @@ class PreferencesManager @Inject constructor(
             preferences[USER_ID] = user.id
             preferences[TOKEN_KEY] = user.token
             preferences[NAME] = user.name
+            preferences[EMAIL] = user.email
         }
     }
 
@@ -48,5 +55,6 @@ class PreferencesManager @Inject constructor(
         private val USER_ID = stringPreferencesKey("user_id")
         private val NAME = stringPreferencesKey("name")
         private val TOKEN_KEY = stringPreferencesKey("token_key")
+        private val EMAIL = stringPreferencesKey("email_key")
     }
 }

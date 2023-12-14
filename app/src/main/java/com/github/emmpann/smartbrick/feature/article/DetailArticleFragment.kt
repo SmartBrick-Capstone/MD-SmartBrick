@@ -8,9 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
-import com.github.emmpann.smartbrick.R
 import com.github.emmpann.smartbrick.core.data.remote.response.ResultApi
-import com.github.emmpann.smartbrick.databinding.FragmentCameraBinding
 import com.github.emmpann.smartbrick.databinding.FragmentDetailArticleBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -42,15 +40,15 @@ class DetailArticleFragment : Fragment() {
     }
 
     private fun setupObserver() {
-        viewModel.setArticleId(DetailArticleFragmentArgs.fromBundle(arguments as Bundle).articleId)
+        viewModel.setArticleSlug(DetailArticleFragmentArgs.fromBundle(arguments as Bundle).articleSlug)
         viewModel.article.observe(viewLifecycleOwner) {
             when (it) {
                 is ResultApi.Success -> {
                     with(binding) {
-                        tvDetailArticleTitle.text = it.data?.title
-                        tvDetailArticleDesc.text = it.data?.description
-                        tvDetailArticleDate.text = it.data?.date
-                        Glide.with(requireContext()).load(it.data?.photoUrl).into(ivDetailArticle)
+                        tvDetailArticleTitle.text = it.data.listArticle.title
+                        tvDetailArticleDesc.text = it.data.listArticle.content
+                        tvDetailArticleDate.text = it.data.listArticle.date
+                        Glide.with(requireContext()).load(it.data.listArticle.image).into(ivDetailArticle)
                     }
 //                    showLoading(false)
                 }

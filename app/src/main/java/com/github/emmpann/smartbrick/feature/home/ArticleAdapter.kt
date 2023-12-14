@@ -31,9 +31,9 @@ class ArticleAdapter : RecyclerView.Adapter<ArticleAdapter.ViewHolder>() {
         fun bind(article: Article) {
             with(binding) {
                 tvArticleTitle.text = article.title
-                tvArticleDesc.text = article.description
+                tvArticleDesc.text = article.content
                 Glide.with(binding.root.context)
-                    .load(article.photoUrl)
+                    .load(article.image)
                     .into(ivArticle)
             }
         }

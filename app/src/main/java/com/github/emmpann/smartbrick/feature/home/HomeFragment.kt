@@ -44,7 +44,7 @@ class HomeFragment : Fragment() {
         articleAdapter.setOnItemClickCallback(object : ArticleAdapter.OnItemClickCallback {
             override fun onItemClicked(article: Article) {
                 val toDetailArticle = HomeFragmentDirections.actionHomeFragmentToDetailArticleFragment()
-                toDetailArticle.articleId = article.id
+                toDetailArticle.articleSlug = article.slug
                 findNavController().navigate(toDetailArticle)
             }
 
@@ -58,7 +58,7 @@ class HomeFragment : Fragment() {
             override fun onItemClicked(article: Article) {
                 val toDetailArticle =
                     HomeFragmentDirections.actionHomeFragmentToDetailArticleFragment()
-                toDetailArticle.articleId = article.id
+                toDetailArticle.articleSlug = article.slug
                 findNavController().navigate(toDetailArticle)
             }
         })

@@ -34,7 +34,14 @@ class ProfileFragment : Fragment() {
     }
 
     private fun setupObserver() {
+        binding.ivProfile.setImageResource(R.drawable.default_profile)
+        viewModel.getEmail().observe(viewLifecycleOwner) {
+            binding.tvEmail.text = it
+        }
 
+        viewModel.getName().observe(viewLifecycleOwner) {
+            binding.tvUsername.text = it
+        }
     }
 
     private fun setEventClickListener() {
