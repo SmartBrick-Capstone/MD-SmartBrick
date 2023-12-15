@@ -101,6 +101,9 @@
         <action
             android:id="@+id/action_scanFragment_to_cameraFragment"
             app:destination="@id/cameraFragment" />
+        <action
+            android:id="@+id/action_scanFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
     </fragment>
     <fragment
         android:id="@+id/tipsTricksFragment"

@@ -44,7 +44,9 @@ class DetailFragment : Fragment() {
 
     private fun setupObserver() {
         viewModel.setCurrentImage(DetailFragmentArgs.fromBundle(arguments as Bundle).imageUri.toUri())
+
         viewModel.currentImageUri.observe(viewLifecycleOwner) {
+            Log.d("imageUri detail", it.toString())
             showImage(it)
         }
     }

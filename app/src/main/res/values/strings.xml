@@ -36,4 +36,8 @@
     <string name="back_to_home">Back to Home</string>
     <string name="scanning_result">Scanning Result</string>
     <string name="tips_tricks"><![CDATA[Tips & Tricks]]></string>
+    <string name="select_in_gallery">Select from Gallery</string>
+    <string name="error">Error</string>
+    <string name="successfully">Successfully</string>
+    <string name="ok">Ok</string>
 </resources>
