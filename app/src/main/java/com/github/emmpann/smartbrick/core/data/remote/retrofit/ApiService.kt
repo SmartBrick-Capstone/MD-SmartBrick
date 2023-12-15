@@ -6,10 +6,12 @@ import com.github.emmpann.smartbrick.core.data.remote.response.ArticleResponse
 import com.github.emmpann.smartbrick.core.data.remote.response.DetailArticleResponse
 import com.github.emmpann.smartbrick.core.data.remote.response.LoginResponse
 import com.github.emmpann.smartbrick.core.data.remote.response.RegisterResponse
+import okhttp3.MultipartBody
 import retrofit2.http.Body
 import retrofit2.http.GET
-import retrofit2.http.Headers
+import retrofit2.http.Multipart
 import retrofit2.http.POST
+import retrofit2.http.Part
 import retrofit2.http.Path
 
 interface ApiService {
@@ -27,4 +29,9 @@ interface ApiService {
     suspend fun getDetailArticle(
         @Path("slug") slug: String
     ): DetailArticleResponse
+
+    @POST("image")
+    suspend fun uploadImage(
+        @Part file: MultipartBody.Part
+    )
 }

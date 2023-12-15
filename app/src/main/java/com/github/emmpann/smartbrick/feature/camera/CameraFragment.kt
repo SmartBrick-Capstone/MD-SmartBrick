@@ -1,6 +1,7 @@
 package com.github.emmpann.smartbrick.feature.camera
 
 import android.Manifest
+import android.app.Dialog
 import android.content.pm.PackageManager
 import android.media.Image
 import android.os.Bundle
@@ -18,6 +19,7 @@ import androidx.camera.core.ImageCapture
 import androidx.camera.core.ImageCaptureException
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.fragment.app.setFragmentResult
@@ -27,7 +29,9 @@ import com.github.emmpann.smartbrick.core.util.CameraUtil.CAMERA_BUNDLE_KEY
 import com.github.emmpann.smartbrick.core.util.CameraUtil.CAMERA_REQUEST_KEY
 import com.github.emmpann.smartbrick.core.util.ImageUtil.createCustomTempFile
 import com.github.emmpann.smartbrick.databinding.FragmentCameraBinding
+import com.github.emmpann.smartbrick.databinding.LayoutLoadingBinding
 import com.github.emmpann.smartbrick.feature.detail.DetailFragmentArgs
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -36,6 +40,7 @@ class CameraFragment : Fragment() {
     private lateinit var binding: FragmentCameraBinding
     private var cameraSelector: CameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
     private var imageCapture: ImageCapture? = null
+    private lateinit var dialog: Dialog
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -132,17 +137,6 @@ class CameraFragment : Fragment() {
                     val toDetailFragment = CameraFragmentDirections.actionCameraFragmentToDetailFragment()
                     toDetailFragment.imageUri = output.savedUri.toString()
                     findNavController().navigate(toDetailFragment)
-
-//                    setFragmentResult(
-//                        CAMERA_REQUEST_KEY,
-//                        bundleOf(
-//                            Pair(
-//                                CAMERA_BUNDLE_KEY,
-//                                output.savedUri.toString()
-//                            )
-//                        )
-//                    )
-//                    findNavController().popBackStack()
                 }
 
                 override fun onError(exception: ImageCaptureException) {
@@ -183,6 +177,22 @@ class CameraFragment : Fragment() {
     override fun onStop() {
         super.onStop()
         orientationEventListener.disable()
+    }
+
+    fun showLoading(isLoading: Boolean) {
+        if (::dialog.isInitialized.not()) {
+            dialog = Dialog(requireContext(), R.style.Dialog_Loading)
+            val dialogBinding = LayoutLoadingBinding.inflate(layoutInflater)
+            dialog.setContentView(dialogBinding.root)
+            dialog.window?.apply {
+                setLayout(
+                    ConstraintLayout.LayoutParams.MATCH_PARENT,
+                    ConstraintLayout.LayoutParams.MATCH_PARENT,
+                )
+            }
+        }
+
+        if (isLoading) dialog.show() else dialog.hide()
     }
 
     companion object {

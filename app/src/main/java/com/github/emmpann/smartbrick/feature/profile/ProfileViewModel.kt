@@ -17,9 +17,9 @@ class ProfileViewModel @Inject constructor(
     private val preferencesManager: PreferencesManager,
 ) : ViewModel() {
 
-    fun getName(): LiveData<String> = preferencesManager.getName().asLiveData()
+    val name: LiveData<String> = preferencesManager.getName().asLiveData()
 
-    fun getEmail(): LiveData<String> = preferencesManager.getEmail().asLiveData()
+    val email: LiveData<String> = preferencesManager.getEmail().asLiveData()
 
     fun clearSession() = viewModelScope.launch { preferencesManager.clearSession() }
 }
