@@ -56,13 +56,10 @@ class ProfileFragment : Fragment() {
             findNavController().navigate(R.id.action_profileFragment_to_verificationFragment)
         }
         binding.btnHelpSupport.setOnClickListener {
-            TODO("Not yet implemented")
+            findNavController().navigate(R.id.action_profileFragment_to_helpSupportFragment)
         }
         binding.btnAboutApp.setOnClickListener {
-            TODO("Not yet implemented")
-        }
-        binding.btnAboutApp.setOnClickListener {
-            TODO("Not yet implemented")
+            findNavController().navigate(R.id.action_profileFragment_to_aboutAppFragment)
         }
         binding.btnLogout.setOnClickListener {
             showLogoutDialog()
