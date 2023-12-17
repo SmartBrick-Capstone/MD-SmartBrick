@@ -12,6 +12,8 @@ import com.github.emmpann.smartbrick.R
 import com.github.emmpann.smartbrick.core.data.remote.response.Article
 import com.github.emmpann.smartbrick.core.data.remote.response.ResultApi
 import com.github.emmpann.smartbrick.databinding.FragmentHomeBinding
+import com.github.emmpann.smartbrick.feature.tipstricks.TipsTricksFragment
+import com.github.emmpann.smartbrick.feature.tipstricks.TipsTricksFragmentArgs
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -35,19 +37,46 @@ class HomeFragment : Fragment() {
 
         setupObserver()
         setupRecyclerView()
+        setClickListener()
+    }
+
+    private fun setClickListener() {
+        with(binding) {
+            val toTipsTricks = HomeFragmentDirections.actionHomeFragmentToTipsTricksFragment()
+            card1.setOnClickListener {
+                toTipsTricks.tipstricksId = "1"
+                findNavController().navigate(toTipsTricks)
+            }
+
+            card2.setOnClickListener {
+                toTipsTricks.tipstricksId = "2"
+                findNavController().navigate(toTipsTricks)
+            }
+
+            card3.setOnClickListener {
+                toTipsTricks.tipstricksId = "3"
+                findNavController().navigate(toTipsTricks)
+            }
+
+            card4.setOnClickListener {
+                toTipsTricks.tipstricksId = "4"
+                findNavController().navigate(toTipsTricks)
+            }
+        }
     }
 
     private fun setupRecyclerView() {
+        binding.rvArticle.overScrollMode = View.OVER_SCROLL_NEVER
         binding.rvArticle.layoutManager = LinearLayoutManager(requireContext())
         articleAdapter = ArticleAdapter()
         binding.rvArticle.adapter = articleAdapter
         articleAdapter.setOnItemClickCallback(object : ArticleAdapter.OnItemClickCallback {
             override fun onItemClicked(article: Article) {
-                val toDetailArticle = HomeFragmentDirections.actionHomeFragmentToDetailArticleFragment()
+                val toDetailArticle =
+                    HomeFragmentDirections.actionHomeFragmentToDetailArticleFragment()
                 toDetailArticle.articleSlug = article.slug
                 findNavController().navigate(toDetailArticle)
             }
-
         })
 
         binding.rvToday.layoutManager =
@@ -89,6 +118,14 @@ class HomeFragment : Fragment() {
     }
 
     private fun showLoading(isLoading: Boolean) {
-        binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
+        if (isLoading) {
+            binding.bannerShimmer.startShimmer()
+            binding.articleShimer.startShimmer()
+        } else {
+            binding.bannerShimmer.visibility = View.INVISIBLE
+            binding.articleShimer.visibility = View.INVISIBLE
+            binding.bannerShimmer.stopShimmer()
+            binding.articleShimer.stopShimmer()
+        }
     }
 }

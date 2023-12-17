@@ -2,6 +2,7 @@ package com.github.emmpann.smartbrick.core.data.local.preference
 
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import com.github.emmpann.smartbrick.core.data.remote.response.LoginResult
@@ -11,6 +12,7 @@ import javax.inject.Inject
 
 class PreferencesManager @Inject constructor(
     private val dataStore: DataStore<Preferences>,
+    private val isFirstTime: DataStore<Preferences>
 ) {
     fun getToken(): Flow<String> {
         return dataStore.data.map { preferences ->
@@ -36,6 +38,18 @@ class PreferencesManager @Inject constructor(
         }
     }
 
+    fun getUserFirstTime(): Flow<Boolean> {
+        return isFirstTime.data.map { preferences ->
+            preferences[USER_FIRST_TIME] ?: true
+        }
+    }
+
+    suspend fun setUserFirstTime(userFirstTime: Boolean) {
+        isFirstTime.edit{ preferences ->
+            preferences[USER_FIRST_TIME] = userFirstTime
+        }
+    }
+
     suspend fun setSession(user: LoginResult) {
         dataStore.edit { preferences ->
             preferences[USER_ID] = user.id
@@ -56,5 +70,6 @@ class PreferencesManager @Inject constructor(
         private val NAME = stringPreferencesKey("name")
         private val TOKEN_KEY = stringPreferencesKey("token_key")
         private val EMAIL = stringPreferencesKey("email_key")
+        private val USER_FIRST_TIME = booleanPreferencesKey("user_first_time")
     }
 }

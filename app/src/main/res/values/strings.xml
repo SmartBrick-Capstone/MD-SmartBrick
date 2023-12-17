@@ -40,4 +40,9 @@
     <string name="error">Error</string>
     <string name="successfully">Successfully</string>
     <string name="ok">Ok</string>
+    <string name="no">No</string>
+    <string name="are_you_sure_you_want_to_log_out_of_your_account">Are you sure you want to log out of your account?</string>
+    <string name="logout">Logout?</string>
+    <string name="yes">Yes</string>
+    <string name="this_waste_can_be_used_as_ecobricks">This waste can be used as Ecobricks</string>
 </resources>

@@ -4,6 +4,7 @@ import com.github.emmpann.smartbrick.core.data.remote.request.LoginRequest
 import com.github.emmpann.smartbrick.core.data.remote.request.RegisterRequest
 import com.github.emmpann.smartbrick.core.data.remote.response.ArticleResponse
 import com.github.emmpann.smartbrick.core.data.remote.response.DetailArticleResponse
+import com.github.emmpann.smartbrick.core.data.remote.response.ImageResponse
 import com.github.emmpann.smartbrick.core.data.remote.response.LoginResponse
 import com.github.emmpann.smartbrick.core.data.remote.response.RegisterResponse
 import okhttp3.MultipartBody
@@ -33,5 +34,5 @@ interface ApiService {
     @POST("image")
     suspend fun uploadImage(
         @Part file: MultipartBody.Part
-    )
+    ): ImageResponse
 }

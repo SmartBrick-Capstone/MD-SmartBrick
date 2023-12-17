@@ -2,6 +2,7 @@ package com.github.emmpann.smartbrick
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
@@ -17,7 +18,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-//    private lateinit var splashScreen: SplashScreen
+    //    private lateinit var splashScreen: SplashScreen
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
     private val viewModel: MainViewModel by viewModels()
@@ -30,19 +31,23 @@ class MainActivity : AppCompatActivity() {
 //        splashScreen =
 //        splashScreen.setKeepOnScreenCondition{ true }
 
-        navController = (supportFragmentManager.findFragmentById(R.id.container) as NavHostFragment).navController
+        navController =
+            (supportFragmentManager.findFragmentById(R.id.container) as NavHostFragment).navController
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
                 R.id.homeFragment -> {
                     binding.navView.visibility = View.VISIBLE
                 }
+
                 R.id.profileFragment -> {
                     binding.navView.visibility = View.VISIBLE
                 }
+
                 R.id.scanFragment -> {
                     binding.navView.visibility = View.VISIBLE
                 }
+
                 else -> {
                     binding.navView.visibility = View.GONE
                 }
@@ -53,12 +58,20 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setStartDestination() {
-        viewModel.token.observe(this) {
-            navController.navInflater.inflate(R.navigation.main_navigation).apply {
-                setStartDestination(if (it.isNotEmpty()) R.id.homeFragment else R.id.loginFragment)
-                navController.graph = this
-//                splashScreen.setKeepOnScreenCondition { false }
+        viewModel.userFirstTime.observe(this) {
+            if (it) {
+                navController.navInflater.inflate(R.navigation.main_navigation)
                 setupWithNavController(binding.navView, navController)
+                return@observe
+            } else {
+                viewModel.token.observe(this) {
+                    navController.navInflater.inflate(R.navigation.main_navigation).apply {
+                        setStartDestination(if (it.isNotEmpty()) R.id.homeFragment else R.id.loginFragment)
+
+                        navController.graph = this
+                        setupWithNavController(binding.navView, navController)
+                    }
+                }
             }
         }
     }

@@ -10,9 +10,9 @@
         android:id="@+id/ic_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_back_black"
-        android:layout_marginTop="32dp"
         android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/ic_back_black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -20,16 +20,29 @@
         android:id="@+id/iv_detail_plastic_result"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/ic_image_scan"
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
-        app:layout_constraintDimensionRatio="5:5"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_image_scan"
+        app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/loading_scan"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_detail_plastic_result"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/iv_detail_plastic_result"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/scan"
+        app:lottie_speed="1.0" />
 
     <TextView
         android:id="@+id/textView3"
@@ -43,17 +56,49 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_result_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_detail_plastic_result">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_margin="8dp"
+            style="@style/TextAppearance.Material3.TitleMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sampah Plastik ini bisa dijadikan Eco Brick"
+            android:textStyle="bold" />
+    </com.google.android.material.card.MaterialCardView>
+
     <Button
         android:id="@+id/btn_back"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="120dp"
         android:layout_marginEnd="32dp"
         android:text="@string/back_to_home"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_detail_plastic_result" />
+        app:layout_constraintTop_toBottomOf="@+id/card_result_container" />
+
+<!--    <Button-->
+<!--        style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="9dp"-->
+<!--        android:text="Swap Point"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/btn_back"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/btn_back"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/btn_back" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

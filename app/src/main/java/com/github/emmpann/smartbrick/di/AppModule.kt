@@ -26,5 +26,5 @@ class AppModule {
 
     @Singleton
     @Provides
-    fun providePreferenceManager(dataStore: DataStore<Preferences>) = PreferencesManager(dataStore)
+    fun providePreferenceManager(dataStore: DataStore<Preferences>, dataStoreFirstTime: DataStore<Preferences>) = PreferencesManager(dataStore, dataStoreFirstTime)
 }

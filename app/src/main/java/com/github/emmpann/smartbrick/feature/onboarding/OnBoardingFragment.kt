@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.github.emmpann.smartbrick.R
 import com.github.emmpann.smartbrick.databinding.FragmentOnBoardingBinding
@@ -14,6 +15,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class OnBoardingFragment : Fragment() {
 
     private lateinit var binding: FragmentOnBoardingBinding
+    private val viewModel: OnBoardingViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,7 +34,8 @@ class OnBoardingFragment : Fragment() {
 
     private fun setupAction() {
         binding.btnGetStarted.setOnClickListener {
-            findNavController().navigate(R.id.action_onBoardingFragment_to_loginFragment)
+            viewModel.setUserFirstTime(false)
+//            findNavController().navigate(R.id.action_onBoardingFragment_to_loginFragment)
         }
     }
 }

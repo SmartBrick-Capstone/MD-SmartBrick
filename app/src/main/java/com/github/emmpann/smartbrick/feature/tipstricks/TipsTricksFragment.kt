@@ -35,10 +35,38 @@ class TipsTricksFragment : Fragment() {
     }
 
     private fun setupObserver() {
-        with(binding) {
-            ivTipstricks.setImageResource(R.drawable.ic_large_trashcan)
-            tvTipstricks.text = ""
-            tvDesc.text = ""
+        when (TipsTricksFragmentArgs.fromBundle(arguments as Bundle).tipstricksId) {
+            "1" -> {
+                with(binding) {
+                    ivTipstricks.setImageResource(R.drawable.ic_large_trashcan)
+                    tvTipstricks.text = ""
+                    tvDesc.text = ""
+                }
+            }
+
+            "2" -> {
+                with(binding) {
+                    ivTipstricks.setImageResource(R.drawable.ic_large_cycle)
+                    tvTipstricks.text = ""
+                    tvDesc.text = ""
+                }
+            }
+
+            "3" -> {
+                with(binding) {
+                    ivTipstricks.setImageResource(R.drawable.ic_large_bottle)
+                    tvTipstricks.text = ""
+                    tvDesc.text = ""
+                }
+            }
+
+            "4" -> {
+                with(binding) {
+                    ivTipstricks.setImageResource(R.drawable.ic_large_plastic_bag)
+                    tvTipstricks.text = ""
+                    tvDesc.text = ""
+                }
+            }
         }
     }
 }

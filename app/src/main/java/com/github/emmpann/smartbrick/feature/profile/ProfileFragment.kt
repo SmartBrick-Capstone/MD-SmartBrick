@@ -8,8 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.bumptech.glide.Glide
 import com.github.emmpann.smartbrick.R
 import com.github.emmpann.smartbrick.databinding.FragmentProfileBinding
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -34,7 +36,9 @@ class ProfileFragment : Fragment() {
     }
 
     private fun setupObserver() {
-        binding.ivProfile.setImageResource(R.drawable.default_profile)
+        Glide.with(binding.root)
+            .load("https://gravatar.com/avatar/639d5f5a7ae8bc25f02b30d6059800cf?s=400&d=retro&r=x")
+            .into(binding.ivProfile)
         viewModel.email.observe(viewLifecycleOwner) {
             binding.tvEmail.text = it
         }
@@ -61,8 +65,21 @@ class ProfileFragment : Fragment() {
             TODO("Not yet implemented")
         }
         binding.btnLogout.setOnClickListener {
-            viewModel.clearSession()
-            findNavController().navigate(R.id.action_profileFragment_to_loginFragment)
+            showLogoutDialog()
         }
+    }
+
+    private fun showLogoutDialog() {
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle(getString(R.string.logout))
+            .setMessage(getString(R.string.are_you_sure_you_want_to_log_out_of_your_account))
+            .setNegativeButton(getString(R.string.no)) { dialog, which ->
+
+            }
+            .setPositiveButton(getString(R.string.yes)) { dialog, which ->
+                viewModel.clearSession()
+//                findNavController().navigate(R.id.action_profileFragment_to_loginFragment)
+            }.show()
+
     }
 }
