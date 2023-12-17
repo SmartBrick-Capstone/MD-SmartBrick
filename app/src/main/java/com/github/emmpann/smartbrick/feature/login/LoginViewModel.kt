@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.github.emmpann.smartbrick.core.data.local.preference.PreferencesManager
-import com.github.emmpann.smartbrick.core.data.local.repository.UserRepository
+import com.github.emmpann.smartbrick.core.data.repository.UserRepository
 import com.github.emmpann.smartbrick.core.data.remote.response.LoginResponse
 import com.github.emmpann.smartbrick.core.data.remote.response.LoginResult
 import com.github.emmpann.smartbrick.core.data.remote.response.ResultApi

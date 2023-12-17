@@ -39,32 +39,32 @@ class TipsTricksFragment : Fragment() {
             "1" -> {
                 with(binding) {
                     ivTipstricks.setImageResource(R.drawable.ic_large_trashcan)
-                    tvTipstricks.text = ""
-                    tvDesc.text = ""
+                    tvTipstricks.text = getString(R.string.tipstricks_title_1)
+                    tvDesc.text = getString(R.string.tipstricks_content_1)
                 }
             }
 
             "2" -> {
                 with(binding) {
                     ivTipstricks.setImageResource(R.drawable.ic_large_cycle)
-                    tvTipstricks.text = ""
-                    tvDesc.text = ""
+                    tvTipstricks.text = getString(R.string.tipstricks_title_2)
+                    tvDesc.text = getString(R.string.tipstricks_content_2)
                 }
             }
 
             "3" -> {
                 with(binding) {
                     ivTipstricks.setImageResource(R.drawable.ic_large_bottle)
-                    tvTipstricks.text = ""
-                    tvDesc.text = ""
+                    tvTipstricks.text = getString(R.string.tipstricks_title_3)
+                    tvDesc.text = getString(R.string.tipstricks_content_3)
                 }
             }
 
             "4" -> {
                 with(binding) {
                     ivTipstricks.setImageResource(R.drawable.ic_large_plastic_bag)
-                    tvTipstricks.text = ""
-                    tvDesc.text = ""
+                    tvTipstricks.text = getString(R.string.tipstricks_title_4)
+                    tvDesc.text = getString(R.string.tipstricks_content_4)
                 }
             }
         }

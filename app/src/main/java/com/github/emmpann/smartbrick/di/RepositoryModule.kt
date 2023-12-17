@@ -1,8 +1,8 @@
 package com.github.emmpann.smartbrick.di
 
-import com.github.emmpann.smartbrick.core.data.local.repository.ArticleRepository
-import com.github.emmpann.smartbrick.core.data.local.repository.ImageRepository
-import com.github.emmpann.smartbrick.core.data.local.repository.UserRepository
+import com.github.emmpann.smartbrick.core.data.repository.ArticleRepository
+import com.github.emmpann.smartbrick.core.data.repository.ImageRepository
+import com.github.emmpann.smartbrick.core.data.repository.UserRepository
 import com.github.emmpann.smartbrick.core.data.remote.retrofit.ApiService
 import dagger.Module
 import dagger.Provides

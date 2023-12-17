@@ -1,4 +1,4 @@
-package com.github.emmpann.smartbrick.core.data.local.repository
+package com.github.emmpann.smartbrick.core.data.repository
 
 import com.github.emmpann.smartbrick.core.data.remote.response.LoginResponse
 import com.github.emmpann.smartbrick.core.data.remote.response.ResultApi

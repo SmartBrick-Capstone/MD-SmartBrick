@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import com.github.emmpann.smartbrick.core.data.local.preference.PreferencesManager
-import com.github.emmpann.smartbrick.core.data.local.repository.ArticleRepository
+import com.github.emmpann.smartbrick.core.data.repository.ArticleRepository
 import com.github.emmpann.smartbrick.core.data.remote.response.Article
 import com.github.emmpann.smartbrick.core.data.remote.response.ArticleResponse
 import com.github.emmpann.smartbrick.core.data.remote.response.ResultApi

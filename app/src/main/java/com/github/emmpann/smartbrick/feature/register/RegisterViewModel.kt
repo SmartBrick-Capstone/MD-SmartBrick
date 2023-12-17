@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.github.emmpann.smartbrick.core.data.local.repository.UserRepository
+import com.github.emmpann.smartbrick.core.data.repository.UserRepository
 import com.github.emmpann.smartbrick.core.data.remote.response.RegisterResponse
 import com.github.emmpann.smartbrick.core.data.remote.response.ResultApi
 import dagger.hilt.android.lifecycle.HiltViewModel

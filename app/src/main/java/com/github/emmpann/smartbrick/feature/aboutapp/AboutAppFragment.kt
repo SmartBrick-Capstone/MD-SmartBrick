@@ -5,6 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.findNavController
+import com.github.emmpann.smartbrick.R
 import com.github.emmpann.smartbrick.databinding.FragmentAboutAppBinding
 
 class AboutAppFragment : Fragment() {
@@ -21,5 +24,19 @@ class AboutAppFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        setupClickListener()
+        setupView()
+    }
+
+    private fun setupClickListener() {
+        binding.btnBack.setOnClickListener { findNavController().popBackStack() }
+    }
+
+    private fun setupView() {
+        with(binding) {
+            title.text = getString(R.string.what_is_smart_brick)
+            content.text = getString(R.string.about_app_content)
+        }
     }
 }

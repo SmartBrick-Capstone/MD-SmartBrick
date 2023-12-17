@@ -1,4 +1,4 @@
-package com.github.emmpann.smartbrick.core.data.local.repository
+package com.github.emmpann.smartbrick.core.data.repository
 
 import com.github.emmpann.smartbrick.core.data.remote.request.LoginRequest
 import com.github.emmpann.smartbrick.core.data.remote.request.RegisterRequest
@@ -41,19 +41,4 @@ class UserRepository(
     }.onStart {
         emit(ResultApi.Loading)
     }.flowOn(Dispatchers.IO)
-
-//    fun getUserProfile(id: String) = flow {
-//        try {
-//            emit(ResultApi.Success(RegisterResponse(true, "Register successfully")))
-//        } catch (e: HttpException) {
-//            val errorBody = e.response()?.errorBody()?.string()
-//            val errorResponse = Gson().fromJson(errorBody, RegisterResponse::class.java)
-//            emit(ResultApi.Error(errorResponse.message))
-//            emit(ResultApi.Error(e.message.toString()))
-//        }
-//    }.onStart {
-//        emit(ResultApi.Loading)
-//    }.flowOn(Dispatchers.IO)
-
-
 }

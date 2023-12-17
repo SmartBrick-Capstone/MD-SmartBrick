@@ -1,7 +1,8 @@
-package com.github.emmpann.smartbrick.core.data.local.repository
+package com.github.emmpann.smartbrick.core.data.repository
 
 import android.util.Log
 import androidx.lifecycle.LiveData
+import androidx.paging.PagingData
 import com.github.emmpann.smartbrick.core.data.remote.response.Article
 import com.github.emmpann.smartbrick.core.data.remote.response.ArticleResponse
 import com.github.emmpann.smartbrick.core.data.remote.response.DetailArticleResponse

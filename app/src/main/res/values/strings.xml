@@ -51,4 +51,23 @@
     <string name="didn_t_receive_otp">Didn\'t receive OTP</string>
     <string name="resend_code">Resend Code</string>
     <string name="timer">(%d)</string>
+    <string name="tipstricks_title_1">Proper Waste Separation</string>
+    <string name="tipstricks_content_1">Make sure to separate different types of plastic so they can be recycled more efficiently.</string>
+    <string name="tipstricks_title_2">Get to Know the Recycle Code</string>
+    <string name="tipstricks_content_2">Know the plastic codes to understand what types of plastic can be recycled.</string>
+    <string name="tipstricks_title_3">Clean Before Recycling</string>
+    <string name="tipstricks_content_3">Make sure to clean and dry plastic bottles before recycling.</string>
+    <string name="tipstricks_title_4">Reduce Single Use Plastic</string>
+    <string name="tipstricks_content_4">Avoid single-use plastic products to reduce plastic waste.</string>
+    <string name="what_is_smart_brick">What is Smart Brick?</string>
+    <string name="smart_brick">Smart Brick</string>
+    <string name="about_app_content">about app content</string>
+    <string name="send_email">Send Email</string>
+    <string name="subject">SUBJECT</string>
+    <string name="home_page">Home page</string>
+    <string name="message">MESSAGE</string>
+    <string name="tell_your_detail_problems">tell your detail problems</string>
+    <string name="app_email">mhdepan@gmail.com</string>
+    <string name="please_fill_in_the_entire_form">please fill in the entire form</string>
+    <string name="no_email_app_installed">No email app installed</string>
 </resources>
