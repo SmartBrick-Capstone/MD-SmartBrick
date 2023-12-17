@@ -16,11 +16,16 @@ class CameraViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val _scanResponse = MutableLiveData<String>()
-
     val scanResponse: LiveData<String> get() = _scanResponse
+
+    private val _isFlashOn = MutableLiveData(false)
+    val isFlashOn: LiveData<Boolean> get() = _isFlashOn
 
     fun uploadImage(imageFile: File) = viewModelScope.launch{
         imageRepository.uploadImage(imageFile)
     }
 
+    fun setFlashLight() = viewModelScope.launch{
+        _isFlashOn.value = _isFlashOn.value?.not()
+    }
 }

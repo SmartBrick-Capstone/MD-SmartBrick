@@ -14,6 +14,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.camera.core.CameraControl
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
 import androidx.camera.core.ImageCaptureException
@@ -23,6 +24,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.fragment.app.setFragmentResult
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.github.emmpann.smartbrick.R
 import com.github.emmpann.smartbrick.core.util.CameraUtil.CAMERA_BUNDLE_KEY
@@ -37,10 +39,13 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class CameraFragment : Fragment() {
 
+    private val viewModel: CameraViewModel by viewModels()
     private lateinit var binding: FragmentCameraBinding
     private var cameraSelector: CameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
     private var imageCapture: ImageCapture? = null
     private lateinit var dialog: Dialog
+    private var isFlashOn: Boolean = true
+    private lateinit var cameraControl: CameraControl
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -62,8 +67,21 @@ class CameraFragment : Fragment() {
         binding.btnBack.setOnClickListener { findNavController().popBackStack() }
         binding.btnCameraShutter.setOnClickListener { takePhoto() }
         binding.btnInfo.setOnClickListener { }
-        binding.btnGallery.setOnClickListener { }
-        binding.btnFlash.setOnClickListener { }
+        binding.btnFlash.setOnClickListener {
+            viewModel.setFlashLight()
+        }
+
+        viewModel.isFlashOn.observe(viewLifecycleOwner) {
+            imageCapture?.flashMode = if (it) {
+                binding.btnFlash.setImageResource(R.drawable.ic_flash_on)
+                ImageCapture.FLASH_MODE_ON
+            } else {
+                binding.btnFlash.setImageResource(R.drawable.ic_flash)
+                ImageCapture.FLASH_MODE_OFF
+            }
+
+            Log.d("CameraX", "Flash Mode: ${imageCapture?.flashMode}")
+        }
     }
 
     private val requestPermissionLauncher =
@@ -134,7 +152,8 @@ class CameraFragment : Fragment() {
                         Toast.LENGTH_SHORT
                     ).show()
 
-                    val toDetailFragment = CameraFragmentDirections.actionCameraFragmentToDetailFragment()
+                    val toDetailFragment =
+                        CameraFragmentDirections.actionCameraFragmentToDetailFragment()
                     toDetailFragment.imageUri = output.savedUri.toString()
                     findNavController().navigate(toDetailFragment)
                 }
@@ -169,15 +188,13 @@ class CameraFragment : Fragment() {
         }
     }
 
-    override fun onStart() {
-        super.onStart()
-        orientationEventListener.enable()
-    }
-
-    override fun onStop() {
-        super.onStop()
-        orientationEventListener.disable()
-    }
+//    private fun toggleFlash(isFlashOn: Boolean) {
+//        if (isFlashOn) {
+//            imageCapture?.flashMode = ImageCapture.FLASH_MODE_ON
+//        } else {
+//            imageCapture?.flashMode = ImageCapture.FLASH_MODE_OFF
+//        }
+//    }
 
     fun showLoading(isLoading: Boolean) {
         if (::dialog.isInitialized.not()) {
@@ -193,6 +210,17 @@ class CameraFragment : Fragment() {
         }
 
         if (isLoading) dialog.show() else dialog.hide()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        orientationEventListener.enable()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        orientationEventListener.disable()
+        imageCapture?.flashMode = ImageCapture.FLASH_MODE_OFF
     }
 
     companion object {
