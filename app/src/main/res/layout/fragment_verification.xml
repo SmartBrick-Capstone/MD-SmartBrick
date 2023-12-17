@@ -1,14 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".feature.verification.VerificationFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <ImageView
+        android:id="@+id/btn_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/ic_back_black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/textView7"
+        style="@style/TextAppearance.Material3.HeadlineSmall"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="196dp"
+        android:text="@string/verification"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView8"
+        style="@style/TextAppearance.Material3.TitleSmall"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:lines="2"
+        android:text="@string/please_enter_your_code_that_we_have_sent_nto_your_email_address"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+    <EditText
+        android:id="@+id/ed_number1"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/ed_verif_shape"
+        android:gravity="center"
+        android:inputType="number"
+        android:maxLength="1"
+        android:maxLines="1"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/btn_verify"
+        app:layout_constraintEnd_toStartOf="@id/ed_number2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+    <EditText
+        android:id="@+id/ed_number2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/ed_verif_shape"
+        android:gravity="center"
+        android:inputType="number"
+        android:maxLength="1"
+        android:maxLines="1"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/ed_number3"
+        app:layout_constraintStart_toEndOf="@id/ed_number1"
+        app:layout_constraintTop_toTopOf="@+id/ed_number1" />
+
+    <EditText
+        android:id="@+id/ed_number3"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/ed_verif_shape"
+        android:gravity="center"
+        android:inputType="number"
+        android:maxLength="1"
+        android:maxLines="1"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/ed_number4"
+        app:layout_constraintStart_toEndOf="@+id/ed_number2"
+        app:layout_constraintTop_toTopOf="@+id/ed_number2" />
+
+    <EditText
+        android:id="@+id/ed_number4"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/ed_verif_shape"
+        android:gravity="center"
+        android:inputType="number"
+        android:maxLength="1"
+        android:maxLines="1"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ed_number3"
+        app:layout_constraintTop_toTopOf="@+id/ed_number3" />
+
+    <Button
+        android:id="@+id/btn_verify"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/verify"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ed_number1" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/didn_t_receive_otp"
+        app:layout_constraintBottom_toBottomOf="@id/btn_resend_code"
+        app:layout_constraintEnd_toStartOf="@id/btn_resend_code"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_verify"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/btn_resend_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/resend_code"
+        android:textStyle="bold"
+        android:layout_marginStart="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView9"
+        app:layout_constraintTop_toTopOf="@+id/textView9" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

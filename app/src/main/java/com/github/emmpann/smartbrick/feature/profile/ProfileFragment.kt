@@ -53,7 +53,7 @@ class ProfileFragment : Fragment() {
             findNavController().navigate(R.id.action_profileFragment_to_historyFragment)
         }
         binding.btnVerification.setOnClickListener {
-            TODO("Not yet implemented")
+            findNavController().navigate(R.id.action_profileFragment_to_verificationFragment)
         }
         binding.btnHelpSupport.setOnClickListener {
             TODO("Not yet implemented")

@@ -84,6 +84,15 @@
         <action
             android:id="@+id/action_profileFragment_to_historyFragment"
             app:destination="@id/historyFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_verificationFragment"
+            app:destination="@id/verificationFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_aboutAppFragment"
+            app:destination="@id/aboutAppFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_helpSupportFragment"
+            app:destination="@id/helpSupportFragment" />
     </fragment>
     <fragment
         android:id="@+id/detailArticleFragment"
@@ -122,4 +131,19 @@
         android:name="com.github.emmpann.smartbrick.feature.history.HistoryFragment"
         android:label="fragment_history"
         tools:layout="@layout/fragment_history" />
+    <fragment
+        android:id="@+id/verificationFragment"
+        android:name="com.github.emmpann.smartbrick.feature.verification.VerificationFragment"
+        android:label="fragment_verification"
+        tools:layout="@layout/fragment_verification" />
+    <fragment
+        android:id="@+id/aboutAppFragment"
+        android:name="com.github.emmpann.smartbrick.feature.aboutapp.AboutAppFragment"
+        android:label="fragment_about_app"
+        tools:layout="@layout/fragment_about_app" />
+    <fragment
+        android:id="@+id/helpSupportFragment"
+        android:name="com.github.emmpann.smartbrick.feature.helpsupport.HelpSupportFragment"
+        android:label="fragment_help_support"
+        tools:layout="@layout/fragment_help_support" />
 </navigation>

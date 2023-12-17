@@ -45,4 +45,10 @@
     <string name="logout">Logout?</string>
     <string name="yes">Yes</string>
     <string name="this_waste_can_be_used_as_ecobricks">This waste can be used as Ecobricks</string>
+    <string name="verification">Verification</string>
+    <string name="please_enter_your_code_that_we_have_sent_nto_your_email_address">Please enter your code that we have sent \nto your email address</string>
+    <string name="verify">Verify</string>
+    <string name="didn_t_receive_otp">Didn\'t receive OTP</string>
+    <string name="resend_code">Resend Code</string>
+    <string name="timer">(%d)</string>
 </resources>
