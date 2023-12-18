@@ -10,128 +10,161 @@
         android:id="@+id/btn_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:src="@drawable/ic_back_black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_unverified_account"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-16dp">
+
+        <TextView
+            android:id="@+id/textView7"
+            style="@style/TextAppearance.Material3.HeadlineSmall"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="196dp"
+            android:text="@string/verification"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_please_enter_code"
+            style="@style/TextAppearance.Material3.TitleSmall"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:lines="2"
+            android:text="@string/please_enter_your_code_that_we_have_sent_nto_your_email_address"
+            android:textAlignment="center"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+        <TextView
+            android:id="@+id/btn_send_otp"
+            style="@style/TextAppearance.Material3.BodySmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/press_to_send_otp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+        <EditText
+            android:id="@+id/ed_number1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/ed_verif_shape"
+            android:gravity="center"
+            android:inputType="number"
+            android:maxLength="1"
+            android:maxLines="1"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/btn_verify"
+            app:layout_constraintEnd_toStartOf="@id/ed_number2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_please_enter_code" />
+
+        <EditText
+            android:id="@+id/ed_number2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/ed_verif_shape"
+            android:gravity="center"
+            android:inputType="number"
+            android:maxLength="1"
+            android:maxLines="1"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/ed_number3"
+            app:layout_constraintStart_toEndOf="@id/ed_number1"
+            app:layout_constraintTop_toTopOf="@+id/ed_number1" />
+
+        <EditText
+            android:id="@+id/ed_number3"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/ed_verif_shape"
+            android:gravity="center"
+            android:inputType="number"
+            android:maxLength="1"
+            android:maxLines="1"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/ed_number4"
+            app:layout_constraintStart_toEndOf="@+id/ed_number2"
+            app:layout_constraintTop_toTopOf="@+id/ed_number2" />
+
+        <EditText
+            android:id="@+id/ed_number4"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/ed_verif_shape"
+            android:gravity="center"
+            android:inputType="number"
+            android:maxLength="1"
+            android:maxLines="1"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ed_number3"
+            app:layout_constraintTop_toTopOf="@+id/ed_number3" />
+
+        <Button
+            android:id="@+id/btn_verify"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/verify"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ed_number1" />
+
+        <TextView
+            android:id="@+id/tv_didnt_receive_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/didn_t_receive_otp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/btn_resend_code"
+            app:layout_constraintEnd_toStartOf="@id/btn_resend_code"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_verify"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/btn_resend_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="@string/resend_code"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_didnt_receive_code"
+            app:layout_constraintTop_toTopOf="@+id/tv_didnt_receive_code" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/tv_verified_account"
         style="@style/TextAppearance.Material3.HeadlineSmall"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="196dp"
-        android:text="@string/verification"
-        android:textAlignment="center"
+        android:text="@string/your_account_has_been_verified"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView8"
-        style="@style/TextAppearance.Material3.TitleSmall"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:lines="2"
-        android:text="@string/please_enter_your_code_that_we_have_sent_nto_your_email_address"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
-
-    <EditText
-        android:id="@+id/ed_number1"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@drawable/ed_verif_shape"
-        android:gravity="center"
-        android:inputType="number"
-        android:maxLength="1"
-        android:maxLines="1"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/btn_verify"
-        app:layout_constraintEnd_toStartOf="@id/ed_number2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
-
-    <EditText
-        android:id="@+id/ed_number2"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@drawable/ed_verif_shape"
-        android:gravity="center"
-        android:inputType="number"
-        android:maxLength="1"
-        android:maxLines="1"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@id/ed_number3"
-        app:layout_constraintStart_toEndOf="@id/ed_number1"
-        app:layout_constraintTop_toTopOf="@+id/ed_number1" />
-
-    <EditText
-        android:id="@+id/ed_number3"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@drawable/ed_verif_shape"
-        android:gravity="center"
-        android:inputType="number"
-        android:maxLength="1"
-        android:maxLines="1"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/ed_number4"
-        app:layout_constraintStart_toEndOf="@+id/ed_number2"
-        app:layout_constraintTop_toTopOf="@+id/ed_number2" />
-
-    <EditText
-        android:id="@+id/ed_number4"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@drawable/ed_verif_shape"
-        android:gravity="center"
-        android:inputType="number"
-        android:maxLength="1"
-        android:maxLines="1"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/ed_number3"
-        app:layout_constraintTop_toTopOf="@+id/ed_number3" />
-
-    <Button
-        android:id="@+id/btn_verify"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginBottom="16dp"
-        android:text="@string/verify"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ed_number1" />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/didn_t_receive_otp"
-        app:layout_constraintBottom_toBottomOf="@id/btn_resend_code"
-        app:layout_constraintEnd_toStartOf="@id/btn_resend_code"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_verify"
-        app:layout_constraintVertical_chainStyle="packed" />
-
-    <TextView
-        android:id="@+id/btn_resend_code"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/resend_code"
-        android:textStyle="bold"
-        android:layout_marginStart="5dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView9"
-        app:layout_constraintTop_toTopOf="@+id/textView9" />
-
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

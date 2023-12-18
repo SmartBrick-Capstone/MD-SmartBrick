@@ -70,4 +70,12 @@
     <string name="app_email">mhdepan@gmail.com</string>
     <string name="please_fill_in_the_entire_form">please fill in the entire form</string>
     <string name="no_email_app_installed">No email app installed</string>
+    <string name="permission_request_granted">Permission request granted</string>
+    <string name="permission_request_denied">Permission request denied</string>
+    <string name="make_sure_only_the_object_is_visible">Make sure only the object is visible</string>
+    <string name="information">Information</string>
+    <string name="please_scan_or_take_a_picture_of_your_trash_from_the_gallery">Please scan or take a picture of your trash from the gallery</string>
+    <string name="step_ecobrick">1. Siapkan botol plastik bersumbu yang kuat.\n 2. Kumpulkan sampah plastik non-biodegradable yang bersih dan kering.\n 3. Potong atau gunting sampah plastik menjadi ukuran kecil.\n 4. Masukkan potongan plastik ke dalam botol plastik.\n 5. Gunakan tongkat atau alat pemadat untuk memadatkan sampah plastik di dalam botol.\n 6. Pastikan botol terisi penuh dan terkompresi dengan baik.\n 7. Tutup botol dengan rapat.\n 8. Simpan ecobrick di tempat kering dan aman dari sinar matahari langsung.\n 9. Gunakan ecobrick sebagai bahan bangunan alternatif.\n</string>
+    <string name="press_to_send_otp">Press to send OTP</string>
+    <string name="your_account_has_been_verified">Your account has been verified</string>
 </resources>

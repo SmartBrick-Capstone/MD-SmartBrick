@@ -11,8 +11,7 @@ import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
 class PreferencesManager @Inject constructor(
-    private val dataStore: DataStore<Preferences>,
-    private val isFirstTime: DataStore<Preferences>
+    private val dataStore: DataStore<Preferences>
 ) {
     fun getToken(): Flow<String> {
         return dataStore.data.map { preferences ->
@@ -39,13 +38,13 @@ class PreferencesManager @Inject constructor(
     }
 
     fun getUserFirstTime(): Flow<Boolean> {
-        return isFirstTime.data.map { preferences ->
+        return dataStore.data.map { preferences ->
             preferences[USER_FIRST_TIME] ?: true
         }
     }
 
     suspend fun setUserFirstTime(userFirstTime: Boolean) {
-        isFirstTime.edit{ preferences ->
+        dataStore.edit{ preferences ->
             preferences[USER_FIRST_TIME] = userFirstTime
         }
     }
@@ -56,12 +55,16 @@ class PreferencesManager @Inject constructor(
             preferences[TOKEN_KEY] = user.token
             preferences[NAME] = user.name
             preferences[EMAIL] = user.email
+//            preferences[IS_VERIFIED] = user
         }
     }
 
     suspend fun clearSession() {
         dataStore.edit { preferences ->
-            preferences.clear()
+            preferences[USER_ID] = ""
+            preferences[TOKEN_KEY] = ""
+            preferences[NAME] = ""
+            preferences[EMAIL] = ""
         }
     }
 
@@ -71,5 +74,6 @@ class PreferencesManager @Inject constructor(
         private val TOKEN_KEY = stringPreferencesKey("token_key")
         private val EMAIL = stringPreferencesKey("email_key")
         private val USER_FIRST_TIME = booleanPreferencesKey("user_first_time")
+        private val IS_VERIFIED = booleanPreferencesKey("is_verified")
     }
 }

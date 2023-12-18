@@ -7,11 +7,14 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.map
+import com.github.emmpann.smartbrick.core.data.local.preference.PreferencesManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class VerificationViewModel @Inject constructor() : ViewModel() {
+class VerificationViewModel @Inject constructor(
+    preferencesManager: PreferencesManager
+) : ViewModel() {
     private var timer: CountDownTimer? = null
 
     private val _currentTime = MutableLiveData<Long>()

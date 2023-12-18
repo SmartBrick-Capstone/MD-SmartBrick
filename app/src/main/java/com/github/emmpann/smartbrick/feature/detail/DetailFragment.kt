@@ -69,9 +69,9 @@ class DetailFragment : Fragment() {
 
     private fun setClickListener() {
         with(binding) {
-            icBack.setOnClickListener {
-                findNavController().popBackStack()
-            }
+//            icBack.setOnClickListener {
+//                findNavController().popBackStack()
+//            }
 
             btnBack.setOnClickListener {
                 findNavController().navigate(R.id.action_detailFragment_to_scanFragment)

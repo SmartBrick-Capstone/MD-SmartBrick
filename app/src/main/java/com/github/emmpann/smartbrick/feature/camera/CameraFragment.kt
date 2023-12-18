@@ -34,6 +34,7 @@ import com.github.emmpann.smartbrick.databinding.FragmentCameraBinding
 import com.github.emmpann.smartbrick.databinding.LayoutLoadingBinding
 import com.github.emmpann.smartbrick.feature.detail.DetailFragmentArgs
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -66,7 +67,7 @@ class CameraFragment : Fragment() {
     private fun setEventClickListener() {
         binding.btnBack.setOnClickListener { findNavController().popBackStack() }
         binding.btnCameraShutter.setOnClickListener { takePhoto() }
-        binding.btnInfo.setOnClickListener { }
+        binding.btnInfo.setOnClickListener { showInfoDialog() }
         binding.btnFlash.setOnClickListener {
             viewModel.setFlashLight()
         }
@@ -80,7 +81,7 @@ class CameraFragment : Fragment() {
                 ImageCapture.FLASH_MODE_OFF
             }
 
-            Log.d("CameraX", "Flash Mode: ${imageCapture?.flashMode}")
+//            Log.d("CameraX", "Flash Mode: ${imageCapture?.flashMode}")
         }
     }
 
@@ -89,10 +90,16 @@ class CameraFragment : Fragment() {
             ActivityResultContracts.RequestPermission()
         ) { isGranted: Boolean ->
             if (isGranted) {
-                Toast.makeText(requireContext(), "Permission request granted", Toast.LENGTH_LONG)
+                Toast.makeText(
+                    requireContext(),
+                    getString(R.string.permission_request_granted), Toast.LENGTH_LONG
+                )
                     .show()
             } else {
-                Toast.makeText(requireContext(), "Permission request denied", Toast.LENGTH_LONG)
+                Toast.makeText(
+                    requireContext(),
+                    getString(R.string.permission_request_denied), Toast.LENGTH_LONG
+                )
                     .show()
             }
         }
@@ -188,13 +195,15 @@ class CameraFragment : Fragment() {
         }
     }
 
-//    private fun toggleFlash(isFlashOn: Boolean) {
-//        if (isFlashOn) {
-//            imageCapture?.flashMode = ImageCapture.FLASH_MODE_ON
-//        } else {
-//            imageCapture?.flashMode = ImageCapture.FLASH_MODE_OFF
-//        }
-//    }
+    private fun showInfoDialog() {
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle(getString(R.string.information))
+            .setMessage(getString(R.string.make_sure_only_the_object_is_visible))
+            .setPositiveButton(getString(R.string.ok)) { dialog, which ->
+
+            }.show()
+
+    }
 
     fun showLoading(isLoading: Boolean) {
         if (::dialog.isInitialized.not()) {

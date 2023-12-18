@@ -58,6 +58,22 @@ class VerificationFragment : Fragment() {
             viewModel.currentTimeString.observe(viewLifecycleOwner) {
                 btnResendCode.text = it
             }
+
+            btnSendOtp.setOnClickListener {
+
+                tvPleaseEnterCode.visibility = View.VISIBLE
+                tvDidntReceiveCode.visibility = View.VISIBLE
+                btnResendCode.visibility = View.VISIBLE
+                btnSendOtp.visibility = View.GONE
+            }
+
+            if (false) {
+                // if account is not verified yet
+
+            } else {
+                binding.layoutUnverifiedAccount.visibility = View.GONE
+                binding.tvVerifiedAccount.visibility = View.VISIBLE
+            }
         }
     }
 
