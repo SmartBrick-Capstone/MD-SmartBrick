@@ -1,9 +1,6 @@
 package com.github.emmpann.smartbrick.feature.verification
 
 import android.os.CountDownTimer
-import android.text.format.DateUtils
-import android.util.Log
-import androidx.camera.video.VideoRecordEvent.Finalize.VideoRecordError
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -16,8 +13,6 @@ import com.github.emmpann.smartbrick.core.data.remote.response.SendOtpResponse
 import com.github.emmpann.smartbrick.core.data.remote.response.VerifyOtpResponse
 import com.github.emmpann.smartbrick.core.data.repository.UserRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -43,16 +38,16 @@ class VerificationViewModel @Inject constructor(
 
     private val _currentEmail = MutableLiveData<String>()
     val currentEmail: LiveData<String> = _currentEmail
+
     fun getEmail() {
         viewModelScope.launch {
-            preferencesManager.getEmail().collect{
+            preferencesManager.getEmail().collect {
                 _currentEmail.value = it
             }
         }
     }
 
     val isUserVerify: LiveData<Boolean> = preferencesManager.isUserVerified().asLiveData()
-
 
 
     fun setUserVerified(isVerified: Boolean) {
@@ -82,7 +77,6 @@ class VerificationViewModel @Inject constructor(
         timer = object : CountDownTimer(60 * 1000, 1000) {
             override fun onTick(p0: Long) {
                 _currentTime.value = p0
-                Log.d("current time2", p0.toString())
 
             }
 

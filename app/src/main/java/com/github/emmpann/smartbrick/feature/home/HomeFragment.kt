@@ -12,8 +12,6 @@ import com.github.emmpann.smartbrick.R
 import com.github.emmpann.smartbrick.core.data.remote.response.Article
 import com.github.emmpann.smartbrick.core.data.remote.response.ResultApi
 import com.github.emmpann.smartbrick.databinding.FragmentHomeBinding
-import com.github.emmpann.smartbrick.feature.tipstricks.TipsTricksFragment
-import com.github.emmpann.smartbrick.feature.tipstricks.TipsTricksFragmentArgs
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

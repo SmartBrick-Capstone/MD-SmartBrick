@@ -2,16 +2,13 @@ package com.github.emmpann.smartbrick.feature.verification
 
 import android.app.Dialog
 import android.os.Bundle
-import android.os.CountDownTimer
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
-import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -108,7 +105,6 @@ class VerificationFragment : Fragment() {
             }
 
             btnSendOtp.setOnClickListener {
-//                Log.d("email verif", viewModel.currentEmail.value.toString())
                 viewModel.sendOtp(viewModel.currentEmail.value.toString())
             }
 

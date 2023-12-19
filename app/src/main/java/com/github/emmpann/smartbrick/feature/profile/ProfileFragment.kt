@@ -75,7 +75,6 @@ class ProfileFragment : Fragment() {
             }
             .setPositiveButton(getString(R.string.yes)) { dialog, which ->
                 viewModel.clearSession()
-//                findNavController().navigate(R.id.action_profileFragment_to_loginFragment)
             }.show()
 
     }
