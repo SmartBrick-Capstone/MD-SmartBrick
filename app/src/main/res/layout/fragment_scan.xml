@@ -5,6 +5,37 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!--    <com.google.android.material.appbar.MaterialToolbar-->
+    <!--        android:id="@+id/materialToolbar"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:background="@drawable/topbar_shape"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent">-->
+
+    <!--        <TextView-->
+    <!--            style="@style/TextAppearance.Material3.TitleMedium"-->
+    <!--            android:textColor="@color/md_theme_light_onPrimary"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_gravity="center"-->
+    <!--            android:text="@string/scan_picture"-->
+    <!--            android:textStyle="bold" />-->
+    <!--    </com.google.android.material.appbar.MaterialToolbar>-->
+
+    <TextView
+        android:id="@+id/textView3"
+        style="@style/TextAppearance.Material3.TitleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/scan_picture"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/iv_detail_plastic_result"
         android:layout_width="0dp"
@@ -18,26 +49,15 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
-    <TextView
-        android:id="@+id/textView3"
-        style="@style/TextAppearance.Material3.TitleLarge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="@string/scan_picture"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView14"
-        android:layout_width="match_parent"
-        android:layout_marginStart="16dp"
         style="@style/TextAppearance.Material3.BodyMedium"
-        android:layout_marginEnd="16dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
         android:text="@string/please_scan_or_take_a_picture_of_your_trash_from_the_gallery"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -54,15 +74,15 @@
         android:drawableLeft="@drawable/ic_camera"
         android:text="@string/scan_picture"
         app:iconGravity="start"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/btn_gallery"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
     <Button
         android:id="@+id/btn_gallery"
-        android:layout_width="0dp"
         style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"

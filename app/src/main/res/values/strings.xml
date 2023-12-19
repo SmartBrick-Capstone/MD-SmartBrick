@@ -4,8 +4,8 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="ob1_text">Scan plastic waste\nwith your phone</string>
-    <string name="ob2_text">Follow instructions for eco brick suitability.</string>
-    <string name="ob3_text">Join the sustainability journey with SmartBrick!</string>
+    <string name="ob2_text">Follow instructions for Ecobrick suitability.</string>
+    <string name="ob3_text">Join the sustainability journey with Smartbrick!</string>
     <string name="get_started">Get started</string>
     <string name="login_welcome">Welcome!</string>
     <string name="sign_in">Sign In</string>
@@ -17,7 +17,7 @@
     <string name="btn_sign_up">Sign Up?</string>
     <string name="take_a_picture">Take a picture</string>
     <string name="home">Home</string>
-    <string name="camera">Camera</string>
+    <string name="camera">Camera Scan</string>
     <string name="profile">Profile</string>
     <string name="home_welcome">Hello, %s!</string>
     <string name="today">Today</string>
@@ -64,7 +64,7 @@
     <string name="about_app_content">about app content</string>
     <string name="send_email">Send Email</string>
     <string name="subject">SUBJECT</string>
-    <string name="home_page">Home page</string>
+    <string name="home_page">eg. Home page</string>
     <string name="message">MESSAGE</string>
     <string name="tell_your_detail_problems">tell your detail problems</string>
     <string name="app_email">mhdepan@gmail.com</string>
@@ -78,4 +78,6 @@
     <string name="step_ecobrick">1. Siapkan botol plastik bersumbu yang kuat.\n 2. Kumpulkan sampah plastik non-biodegradable yang bersih dan kering.\n 3. Potong atau gunting sampah plastik menjadi ukuran kecil.\n 4. Masukkan potongan plastik ke dalam botol plastik.\n 5. Gunakan tongkat atau alat pemadat untuk memadatkan sampah plastik di dalam botol.\n 6. Pastikan botol terisi penuh dan terkompresi dengan baik.\n 7. Tutup botol dengan rapat.\n 8. Simpan ecobrick di tempat kering dan aman dari sinar matahari langsung.\n 9. Gunakan ecobrick sebagai bahan bangunan alternatif.\n</string>
     <string name="press_to_send_otp">Press to send OTP</string>
     <string name="your_account_has_been_verified">Your account has been verified</string>
+    <string name="failed">Failed</string>
+    <string name="success">Success</string>
 </resources>
