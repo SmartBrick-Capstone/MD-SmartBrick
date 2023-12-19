@@ -15,13 +15,19 @@ data class LoginResponse(
 )
 
 data class LoginResult(
-    val id: String,
 
+    @field:SerializedName("name")
     val name: String,
 
+    @field:SerializedName("email_verified_at")
+    val emailVerifiedAt: String? = null,
+
+    @field:SerializedName("id")
+    val id: Int,
+
+    @field:SerializedName("email")
     val email: String,
 
-    val emailVerifiedAt: String,
-
+    @field:SerializedName("token")
     val token: String,
 )

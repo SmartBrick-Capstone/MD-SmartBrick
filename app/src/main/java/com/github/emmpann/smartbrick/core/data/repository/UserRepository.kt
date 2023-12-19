@@ -1,10 +1,15 @@
 package com.github.emmpann.smartbrick.core.data.repository
 
+import android.util.Log
 import com.github.emmpann.smartbrick.core.data.remote.request.LoginRequest
 import com.github.emmpann.smartbrick.core.data.remote.request.RegisterRequest
+import com.github.emmpann.smartbrick.core.data.remote.request.SendOtpRequest
+import com.github.emmpann.smartbrick.core.data.remote.request.VerifyOtpRequest
 import com.github.emmpann.smartbrick.core.data.remote.response.LoginResponse
 import com.github.emmpann.smartbrick.core.data.remote.response.RegisterResponse
 import com.github.emmpann.smartbrick.core.data.remote.response.ResultApi
+import com.github.emmpann.smartbrick.core.data.remote.response.SendOtpResponse
+import com.github.emmpann.smartbrick.core.data.remote.response.VerifyOtpResponse
 import com.github.emmpann.smartbrick.core.data.remote.retrofit.ApiService
 import com.google.gson.Gson
 import kotlinx.coroutines.Dispatchers
@@ -42,26 +47,28 @@ class UserRepository(
         emit(ResultApi.Loading)
     }.flowOn(Dispatchers.IO)
 
-    fun sendOtp(name: String, email: String, password: String) = flow {
+    fun sendOtp(email: String) = flow {
         try {
-            val successResponse = apiService.register(RegisterRequest(name, email, password, password))
+            Log.d("EMAIL", email)
+            val successResponse = apiService.sendOtp(email)
             emit(ResultApi.Success(successResponse))
         } catch (e: HttpException) {
             val errorBody = e.response()?.errorBody()?.string()
-            val errorResponse = Gson().fromJson(errorBody, RegisterResponse::class.java)
+            val errorResponse = Gson().fromJson(errorBody, SendOtpResponse::class.java)
             emit(ResultApi.Error(errorResponse.message))
         }
     }.onStart {
         emit(ResultApi.Loading)
     }.flowOn(Dispatchers.IO)
 
-    fun verifyOtp(name: String, email: String, password: String) = flow {
+    fun verifyOtp(email: String, otp: String) = flow {
         try {
-            val successResponse = apiService.register(RegisterRequest(name, email, password, password))
+            Log.d("EMAIL verifotp", "$email, $otp")
+            val successResponse = apiService.verifyOtp(VerifyOtpRequest(email, otp))
             emit(ResultApi.Success(successResponse))
         } catch (e: HttpException) {
             val errorBody = e.response()?.errorBody()?.string()
-            val errorResponse = Gson().fromJson(errorBody, RegisterResponse::class.java)
+            val errorResponse = Gson().fromJson(errorBody, VerifyOtpResponse::class.java)
             emit(ResultApi.Error(errorResponse.message))
         }
     }.onStart {

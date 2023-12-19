@@ -4,6 +4,7 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
+import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
 import com.github.emmpann.smartbrick.core.data.remote.response.LoginResult
 import kotlinx.coroutines.flow.Flow
@@ -31,9 +32,9 @@ class PreferencesManager @Inject constructor(
         }
     }
 
-    fun getUserId(): Flow<String> {
+    fun getUserId(): Flow<Int> {
         return dataStore.data.map { preferences ->
-            preferences[USER_ID] ?: ""
+            preferences[USER_ID] ?: 0
         }
     }
 
@@ -43,9 +44,21 @@ class PreferencesManager @Inject constructor(
         }
     }
 
+    fun isUserVerified(): Flow<Boolean> {
+        return dataStore.data.map { preferences ->
+            preferences[IS_VERIFIED] ?: false
+        }
+    }
+
     suspend fun setUserFirstTime(userFirstTime: Boolean) {
         dataStore.edit{ preferences ->
             preferences[USER_FIRST_TIME] = userFirstTime
+        }
+    }
+
+    suspend fun setUserVerified(isVerified: Boolean) {
+        dataStore.edit{ preferences ->
+            preferences[IS_VERIFIED] = isVerified
         }
     }
 
@@ -55,21 +68,22 @@ class PreferencesManager @Inject constructor(
             preferences[TOKEN_KEY] = user.token
             preferences[NAME] = user.name
             preferences[EMAIL] = user.email
-//            preferences[IS_VERIFIED] = user
+            preferences[IS_VERIFIED] = user.emailVerifiedAt != null
         }
     }
 
     suspend fun clearSession() {
         dataStore.edit { preferences ->
-            preferences[USER_ID] = ""
+            preferences[USER_ID] = 0
             preferences[TOKEN_KEY] = ""
             preferences[NAME] = ""
             preferences[EMAIL] = ""
+            preferences[IS_VERIFIED] = false
         }
     }
 
     companion object {
-        private val USER_ID = stringPreferencesKey("user_id")
+        private val USER_ID = intPreferencesKey("user_id")
         private val NAME = stringPreferencesKey("name")
         private val TOKEN_KEY = stringPreferencesKey("token_key")
         private val EMAIL = stringPreferencesKey("email_key")
