@@ -41,4 +41,30 @@ class UserRepository(
     }.onStart {
         emit(ResultApi.Loading)
     }.flowOn(Dispatchers.IO)
+
+    fun sendOtp(name: String, email: String, password: String) = flow {
+        try {
+            val successResponse = apiService.register(RegisterRequest(name, email, password, password))
+            emit(ResultApi.Success(successResponse))
+        } catch (e: HttpException) {
+            val errorBody = e.response()?.errorBody()?.string()
+            val errorResponse = Gson().fromJson(errorBody, RegisterResponse::class.java)
+            emit(ResultApi.Error(errorResponse.message))
+        }
+    }.onStart {
+        emit(ResultApi.Loading)
+    }.flowOn(Dispatchers.IO)
+
+    fun verifyOtp(name: String, email: String, password: String) = flow {
+        try {
+            val successResponse = apiService.register(RegisterRequest(name, email, password, password))
+            emit(ResultApi.Success(successResponse))
+        } catch (e: HttpException) {
+            val errorBody = e.response()?.errorBody()?.string()
+            val errorResponse = Gson().fromJson(errorBody, RegisterResponse::class.java)
+            emit(ResultApi.Error(errorResponse.message))
+        }
+    }.onStart {
+        emit(ResultApi.Loading)
+    }.flowOn(Dispatchers.IO)
 }
