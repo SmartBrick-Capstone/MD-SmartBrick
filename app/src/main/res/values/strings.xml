@@ -44,7 +44,7 @@
     <string name="are_you_sure_you_want_to_log_out_of_your_account">Are you sure you want to log out of your account?</string>
     <string name="logout">Logout?</string>
     <string name="yes">Yes</string>
-    <string name="this_waste_can_be_used_as_ecobricks">This waste can be used as Ecobricks</string>
+    <string name="this_waste_can_be_used_as_ecobricks">This waste is suitable to be used as Ecobricks</string>
     <string name="verification">Verification</string>
     <string name="please_enter_your_code_that_we_have_sent_nto_your_email_address">Please enter your code that we have sent \nto your email address</string>
     <string name="verify">Verify</string>
@@ -61,7 +61,6 @@
     <string name="tipstricks_content_4">Avoid single-use plastic products to reduce plastic waste.</string>
     <string name="what_is_smart_brick">What is Smart Brick?</string>
     <string name="smart_brick">Smart Brick</string>
-    <string name="about_app_content">about app content</string>
     <string name="send_email">Send Email</string>
     <string name="subject">SUBJECT</string>
     <string name="home_page">eg. Home page</string>
@@ -75,7 +74,7 @@
     <string name="make_sure_only_the_object_is_visible">Make sure only the object is visible</string>
     <string name="information">Information</string>
     <string name="please_scan_or_take_a_picture_of_your_trash_from_the_gallery">Please scan or take a picture of your trash from the gallery</string>
-    <string name="step_ecobrick">1. Siapkan botol plastik bersumbu yang kuat.\n 2. Kumpulkan sampah plastik non-biodegradable yang bersih dan kering.\n 3. Potong atau gunting sampah plastik menjadi ukuran kecil.\n 4. Masukkan potongan plastik ke dalam botol plastik.\n 5. Gunakan tongkat atau alat pemadat untuk memadatkan sampah plastik di dalam botol.\n 6. Pastikan botol terisi penuh dan terkompresi dengan baik.\n 7. Tutup botol dengan rapat.\n 8. Simpan ecobrick di tempat kering dan aman dari sinar matahari langsung.\n 9. Gunakan ecobrick sebagai bahan bangunan alternatif.\n</string>
+    <string name="step_ecobrick">1. Prepare a plastic bottle with a strong wick.\n2. Collect clean and dry non-biodegradable plastic waste.\n3. Cut or scissor plastic waste into small sizes.\n4. Put the plastic pieces into the plastic bottle.\n5. Use a stick or compactor to compact the plastic waste in the bottle.\n6. Make sure the bottle is full and well compressed.\n7. Close the bottle tightly.\n8. Store ecobricks in a dry place and safe from direct sunlight.\n9. Use ecobricks as an alternative building material.</string>
     <string name="press_to_send_otp">Press to send OTP</string>
     <string name="your_account_has_been_verified">Your account has been verified</string>
     <string name="failed">Failed</string>
@@ -83,8 +82,10 @@
     <string name="please_verified_you_account">Please verified you account</string>
     <string name="success_take_photo">Success take photo.</string>
     <string name="failed_take_photo">Failed take photo.</string>
-    <string name="this_waste_cant_be_used_as_ecobricks">this waste can\'t be used as Ecobrick</string>
+    <string name="this_waste_cant_be_used_as_ecobricks">this waste isn\'t suitable to be used as Ecobrick</string>
     <string name="not_suitable">Not suitable</string>
     <string name="suitable">Suitable</string>
     <string name="feature_is_under_construction">Feature is under construction</string>
+    <string name="about_app_content">Smartbrick is an application that provides tools for making ecobricks. The way it works is that the user can scan an image of the plastic, to find out the results of the classification of whether the plastic is suitable for use as an ecobrick or not. After carrying out the scan, the user will be given short instructions regarding the steps that must be taken to make a suitable ecobrick. Apart from doing that, Smartbrick also provides articles related to ecobricks. In further development, there will be a reward system where users can get benefits from scanning plastic waste, and get rewards based on the most scanning history.</string>
+    <string name="no_image_selected">No image selected</string>
 </resources>

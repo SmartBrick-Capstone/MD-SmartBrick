@@ -1,7 +1,6 @@
 package com.github.emmpann.smartbrick.feature.home
 
 import android.os.Bundle
-import android.os.Handler
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +8,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.viewpager2.widget.ViewPager2
 import com.github.emmpann.smartbrick.R
 import com.github.emmpann.smartbrick.core.data.remote.response.Article
 import com.github.emmpann.smartbrick.core.data.remote.response.ResultApi
@@ -30,7 +28,7 @@ class HomeFragment : Fragment() {
     private lateinit var bannerAdapter: BannerAdapter
 
     private var currentPosition = 0
-    private val delay: Long = 3000 // Delay in milliseconds for auto-scrolling
+    private val delay: Long = 3000
 
     private lateinit var autoScrollJob: Job
 
@@ -149,8 +147,14 @@ class HomeFragment : Fragment() {
         }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        autoScrollJob.cancel() // Cancel the coroutine job when the activity is destroyed
+    override fun onPause() {
+        super.onPause()
+        autoScrollJob.cancel()
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        autoScrollJob.start()
     }
 }

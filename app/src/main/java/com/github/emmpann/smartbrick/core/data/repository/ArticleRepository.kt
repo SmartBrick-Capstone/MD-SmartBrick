@@ -1,13 +1,7 @@
 package com.github.emmpann.smartbrick.core.data.repository
 
-import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.paging.PagingData
-import com.github.emmpann.smartbrick.core.data.remote.response.Article
-import com.github.emmpann.smartbrick.core.data.remote.response.ArticleResponse
 import com.github.emmpann.smartbrick.core.data.remote.response.DetailArticleResponse
 import com.github.emmpann.smartbrick.core.data.remote.response.LoginResponse
-import com.github.emmpann.smartbrick.core.data.remote.response.LoginResult
 import com.github.emmpann.smartbrick.core.data.remote.response.ResultApi
 import com.github.emmpann.smartbrick.core.data.remote.retrofit.ApiService
 import com.google.gson.Gson

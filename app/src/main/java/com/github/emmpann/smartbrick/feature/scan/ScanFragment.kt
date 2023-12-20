@@ -1,7 +1,6 @@
 package com.github.emmpann.smartbrick.feature.scan
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,7 +12,6 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.github.emmpann.smartbrick.R
 import com.github.emmpann.smartbrick.databinding.FragmentScanBinding
-import com.github.emmpann.smartbrick.feature.scan.ScanFragmentDirections.ActionScanFragmentToDetailFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -27,11 +25,11 @@ class ScanFragment : Fragment() {
     ) { uri ->
         uri?.let {
             val toDetailFragment = ScanFragmentDirections.actionScanFragmentToDetailFragment()
-            Log.d("imageUri", it.toString())
             toDetailFragment.imageUri = it.toString()
             findNavController().navigate(toDetailFragment)
         } ?: run {
-            Toast.makeText(requireContext(), "No image selected", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(),
+                getString(R.string.no_image_selected), Toast.LENGTH_SHORT).show()
         }
     }
 

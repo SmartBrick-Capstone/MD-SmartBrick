@@ -1,6 +1,5 @@
 package com.github.emmpann.smartbrick.feature.article
 
-import android.os.Build
 import android.os.Bundle
 import android.text.Html
 import androidx.fragment.app.Fragment
@@ -48,27 +47,28 @@ class DetailArticleFragment : Fragment() {
                 is ResultApi.Success -> {
                     with(binding) {
                         tvDetailArticleTitle.text = it.data.listArticle.title
-                        tvDetailArticleDesc.text = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                        tvDetailArticleDesc.text =
                             Html.fromHtml(it.data.listArticle.content, Html.FROM_HTML_MODE_COMPACT)
-                        } else {
-                            Html.fromHtml(it.data.listArticle.content)
-                        }
                         tvDetailArticleDate.text = it.data.listArticle.date
-                        Glide.with(requireContext()).load(it.data.listArticle.image).into(ivDetailArticle)
+                        Glide.with(requireContext()).load(it.data.listArticle.image)
+                            .into(ivDetailArticle)
                     }
-//                    showLoading(false)
+                    showLoading(false)
                 }
 
                 is ResultApi.Loading -> {
-//                    showLoading(true)
+                    showLoading(true)
                 }
 
                 is ResultApi.Error -> {
-//                    showLoading(false)
+                    showLoading(false)
                 }
             }
         }
     }
 
+    private fun showLoading(isLoading: Boolean) {
+        binding.loading.visibility = if (isLoading) View.VISIBLE else View.GONE
+    }
 
 }

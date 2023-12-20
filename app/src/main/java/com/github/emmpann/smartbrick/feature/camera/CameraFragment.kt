@@ -3,9 +3,7 @@ package com.github.emmpann.smartbrick.feature.camera
 import android.Manifest
 import android.app.Dialog
 import android.content.pm.PackageManager
-import android.media.Image
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.OrientationEventListener
@@ -14,27 +12,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.camera.core.CameraControl
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
 import androidx.camera.core.ImageCaptureException
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
-import androidx.core.os.bundleOf
-import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.github.emmpann.smartbrick.R
-import com.github.emmpann.smartbrick.core.data.remote.response.ResultApi
-import com.github.emmpann.smartbrick.core.util.CameraUtil.CAMERA_BUNDLE_KEY
-import com.github.emmpann.smartbrick.core.util.CameraUtil.CAMERA_REQUEST_KEY
 import com.github.emmpann.smartbrick.core.util.ImageUtil.createCustomTempFile
 import com.github.emmpann.smartbrick.databinding.FragmentCameraBinding
-import com.github.emmpann.smartbrick.databinding.LayoutLoadingBinding
-import com.github.emmpann.smartbrick.feature.detail.DetailFragmentArgs
-import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -46,8 +34,6 @@ class CameraFragment : Fragment() {
     private var cameraSelector: CameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
     private var imageCapture: ImageCapture? = null
     private lateinit var dialog: Dialog
-    private var isFlashOn: Boolean = true
-    private lateinit var cameraControl: CameraControl
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -161,8 +147,6 @@ class CameraFragment : Fragment() {
                         CameraFragmentDirections.actionCameraFragmentToDetailFragment()
                     toDetailFragment.imageUri = output.savedUri.toString()
                     findNavController().navigate(toDetailFragment)
-//                    Log.d("image", "${photoFile.path}, ${photoFile.name}")
-//                    viewModel.uploadImage(photoFile)
                 }
 
                 override fun onError(exception: ImageCaptureException) {
@@ -203,22 +187,6 @@ class CameraFragment : Fragment() {
 
             }.show()
 
-    }
-
-    fun showLoading(isLoading: Boolean) {
-        if (::dialog.isInitialized.not()) {
-            dialog = Dialog(requireContext(), R.style.Dialog_Loading)
-            val dialogBinding = LayoutLoadingBinding.inflate(layoutInflater)
-            dialog.setContentView(dialogBinding.root)
-            dialog.window?.apply {
-                setLayout(
-                    ConstraintLayout.LayoutParams.MATCH_PARENT,
-                    ConstraintLayout.LayoutParams.MATCH_PARENT,
-                )
-            }
-        }
-
-        if (isLoading) dialog.show() else dialog.hide()
     }
 
     override fun onStart() {

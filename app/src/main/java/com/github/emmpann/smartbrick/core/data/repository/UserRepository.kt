@@ -1,9 +1,7 @@
 package com.github.emmpann.smartbrick.core.data.repository
 
-import android.util.Log
 import com.github.emmpann.smartbrick.core.data.remote.request.LoginRequest
 import com.github.emmpann.smartbrick.core.data.remote.request.RegisterRequest
-import com.github.emmpann.smartbrick.core.data.remote.request.SendOtpRequest
 import com.github.emmpann.smartbrick.core.data.remote.request.VerifyOtpRequest
 import com.github.emmpann.smartbrick.core.data.remote.response.LoginResponse
 import com.github.emmpann.smartbrick.core.data.remote.response.RegisterResponse
@@ -49,7 +47,6 @@ class UserRepository(
 
     fun sendOtp(email: String) = flow {
         try {
-            Log.d("EMAIL", email)
             val successResponse = apiService.sendOtp(email)
             emit(ResultApi.Success(successResponse))
         } catch (e: HttpException) {
@@ -63,7 +60,6 @@ class UserRepository(
 
     fun verifyOtp(email: String, otp: String) = flow {
         try {
-            Log.d("EMAIL verifotp", "$email, $otp")
             val successResponse = apiService.verifyOtp(VerifyOtpRequest(email, otp))
             emit(ResultApi.Success(successResponse))
         } catch (e: HttpException) {

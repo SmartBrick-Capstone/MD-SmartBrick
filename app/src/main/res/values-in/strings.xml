@@ -44,7 +44,7 @@
     <string name="are_you_sure_you_want_to_log_out_of_your_account">Apakah Anda yakin ingin keluar dari akun Anda?</string>
     <string name="logout">Keluar?</string>
     <string name="yes">Ya</string>
-    <string name="this_waste_can_be_used_as_ecobricks">Sampah ini dapat digunakan sebagai Ecobrick</string>
+    <string name="this_waste_can_be_used_as_ecobricks">Sampah ini layak dijadikan sebagai Ecobrick</string>
     <string name="verification">Verifikasi</string>
     <string name="please_enter_your_code_that_we_have_sent_nto_your_email_address">Silakan masukkan kode yang telah kami kirimkan \nke alamat email Anda</string>
     <string name="verify">Verifikasi</string>
@@ -61,7 +61,7 @@
     <string name="tipstricks_content_4">Hindari produk plastik sekali pakai untuk mengurangi sampah plastik.</string>
     <string name="what_is_smart_brick">Apa itu Smartbrick?</string>
     <string name="smart_brick">Smart Brick</string>
-    <string name="about_app_content">Smartbrick adalah sebuah aplikasi yang dapat mendeteksi sampah plastik yang bisa dijadikan sebuah Ecobrick. Selain melakuka pemindaian sampah plastik pengguna akan mendapatkan sebuah point yang tentunya bisa dikumpulkan untuk ditukarkan menjadi uang rupiah.</string>
+    <string name="about_app_content">Smartbrick adalah aplikasi yang menyediakan sebuah tools untuk membuat sebuah ecobrick. Cara kerjanya adalah pengguna bisa melakukan sebuah pemindaian gambar plastik, untuk mengetahui hasil dari klasifiksai apakah plastik tersebut layak dijadikan sebagai ecobrick atau tidak. Setelah melakukan scan pengguna akan diberikan berupa instruksi singkat mengenai step yang harus dilakukan untuk membuat ecobrick yang sesuai. Selain melakukan itu Smartbrick juga menyediakan sebuah artikel-artikel yang berkaitan dengan ecobrick. Pada pengembangan selanjutnya akan ada sebuah reward sistem yang  mana pengguna bisa mendapatkan benefit  dari melakukan scanning sampah plastik, dan mendapatkan reward berdasarkan history scanning terbanyak.</string>
     <string name="send_email">Kirim Email</string>
     <string name="subject">SUBJEK</string>
     <string name="home_page">contoh. Halaman Beranda</string>
@@ -75,11 +75,17 @@
     <string name="make_sure_only_the_object_is_visible">Pastikan hanya gambar target yang terlihat</string>
     <string name="information">Informasi</string>
     <string name="please_scan_or_take_a_picture_of_your_trash_from_the_gallery">Lakukan pemindaian dengan kamera atau ambil foto sampah plastik dari galeri</string>
-    <string name="step_ecobrick">1. Siapkan botol plastik bersumbu yang kuat.\n 2. Kumpulkan sampah plastik non-biodegradable yang bersih dan kering.\n 3. Potong atau gunting sampah plastik menjadi ukuran kecil.\n 4. Masukkan potongan plastik ke dalam botol plastik.\n 5. Gunakan tongkat atau alat pemadat untuk memadatkan sampah plastik di dalam botol.\n 6. Pastikan botol terisi penuh dan terkompresi dengan baik.\n 7. Tutup botol dengan rapat.\n 8. Simpan ecobrick di tempat kering dan aman dari sinar matahari langsung.\n 9. Gunakan ecobrick sebagai bahan bangunan alternatif.\n</string>
+    <string name="step_ecobrick">"1. Siapkan botol plastik bersumbu yang kuat.  \n2. Kumpulkan sampah plastik non-biodegradable yang bersih dan kering.  \n3. Potong atau gunting sampah plastik menjadi ukuran kecil.  \n4. Masukkan potongan plastik ke dalam botol plastik.  \n5. Gunakan tongkat atau alat pemadat untuk memadatkan sampah plastik di dalam botol.  \n6. Pastikan botol terisi penuh dan terkompresi dengan baik.  \n7. Tutup botol dengan rapat.  \n8. Simpan ecobrick di tempat kering dan aman dari sinar matahari langsung.  \n9. Gunakan ecobrick sebagai bahan bangunan alternatif. "</string>
     <string name="press_to_send_otp">Tekan untuk mengirim kode OTP</string>
     <string name="your_account_has_been_verified">Akun Anda sudah diverifikasi</string>
     <string name="failed">Gagal</string>
     <string name="success">Berhasil</string>
-    <string name="please_verified_you_account">Please verified you account</string>
-    <string name="feature_is_under_construction">Feature is under construction</string>
+    <string name="please_verified_you_account">Mohon untuk verifikasi akun Anda</string>
+    <string name="success_take_photo">Berhasil mengambil gambar</string>
+    <string name="failed_take_photo">Gagal mengambil gambar</string>
+    <string name="this_waste_cant_be_used_as_ecobricks">Sampah ini tidak layak untuk dijadikan sebagai Ecobrick</string>
+    <string name="not_suitable">Tidak layak</string>
+    <string name="suitable">Layak</string>
+    <string name="feature_is_under_construction">Fitur dalam proses perancangan</string>
+    <string name="no_image_selected">No image selected</string>
 </resources>

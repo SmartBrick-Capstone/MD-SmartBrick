@@ -10,11 +10,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.github.emmpann.smartbrick.R
-import com.github.emmpann.smartbrick.core.data.remote.response.Article
 import com.github.emmpann.smartbrick.core.data.remote.response.ResultApi
 import com.github.emmpann.smartbrick.databinding.FragmentHistoryBinding
-import com.github.emmpann.smartbrick.feature.home.ArticleAdapter
-import com.github.emmpann.smartbrick.feature.home.HomeFragmentDirections
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
