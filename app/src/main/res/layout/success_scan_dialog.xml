@@ -3,8 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    app:cardCornerRadius="28dp"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="@color/md_theme_light_secondaryContainer"
+    app:cardCornerRadius="28dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -29,6 +30,7 @@
             android:layout_height="wrap_content"
             android:text="@string/suitable"
             android:textAlignment="center"
+            android:textColor="@color/md_theme_light_onSecondaryContainer"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -40,6 +42,7 @@
             android:layout_height="wrap_content"
             android:text="@string/this_waste_can_be_used_as_ecobricks"
             android:textAlignment="center"
+            android:textColor="@color/md_theme_light_onSecondaryContainer"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"

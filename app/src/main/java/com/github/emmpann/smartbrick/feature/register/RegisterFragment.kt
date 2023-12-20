@@ -40,6 +40,12 @@ class RegisterFragment : Fragment() {
                 binding.edEmail.text.toString(),
                 binding.edPassword.text.toString()
             )
+
+            with(binding) {
+                edName.text?.clear()
+                edEmail.text?.clear()
+                edPassword.text?.clear()
+            }
         }
     }
 

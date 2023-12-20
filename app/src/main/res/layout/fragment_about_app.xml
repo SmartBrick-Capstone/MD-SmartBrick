@@ -6,14 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".feature.helpsupport.HelpSupportFragment">
 
-<!--    <com.google.android.material.appbar.MaterialToolbar-->
-<!--        android:id="@+id/toolbar"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
-
         <ImageView
             android:id="@+id/btn_back"
             android:layout_width="wrap_content"
@@ -91,15 +83,5 @@
         app:layout_constraintStart_toStartOf="@+id/title"
         app:layout_constraintTop_toBottomOf="@+id/title"
         tools:text="Smart Brick is" />
-
-    <!--    <ImageView-->
-    <!--        android:id="@+id/imageView4"-->
-    <!--        android:layout_width="100dp"-->
-    <!--        android:layout_marginStart="32dp"-->
-    <!--        android:layout_marginTop="16dp"-->
-    <!--        android:layout_height="100dp"-->
-    <!--        android:src="@drawable/logo"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toBottomOf="@+id/textView10" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

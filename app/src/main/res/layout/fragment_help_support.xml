@@ -93,6 +93,4 @@
         app:layout_constraintEnd_toEndOf="@+id/btn_send_email"
         app:layout_constraintStart_toStartOf="@+id/btn_send_email"
         app:layout_constraintTop_toBottomOf="@+id/btn_send_email" />
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
