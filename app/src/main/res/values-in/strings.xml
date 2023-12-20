@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">SmartBrick</string>
+    <string name="app_name">Smart Brick</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="ob1_text">Pindai sampah plastik\ndengan ponsel Anda</string>
