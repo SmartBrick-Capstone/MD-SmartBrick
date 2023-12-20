@@ -40,12 +40,6 @@ class RegisterFragment : Fragment() {
                 binding.edEmail.text.toString(),
                 binding.edPassword.text.toString()
             )
-
-            with(binding) {
-                edName.text?.clear()
-                edEmail.text?.clear()
-                edPassword.text?.clear()
-            }
         }
     }
 
@@ -55,6 +49,11 @@ class RegisterFragment : Fragment() {
                 is ResultApi.Success -> {
                     btnVisibility(true)
                     showSuccessDialog(it.data.message)
+                    with(binding) {
+                        edName.text?.clear()
+                        edEmail.text?.clear()
+                        edPassword.text?.clear()
+                    }
                 }
 
                 is ResultApi.Error -> {
