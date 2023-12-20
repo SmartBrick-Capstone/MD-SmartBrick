@@ -27,8 +27,8 @@ class NetworkModule {
                 else HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.NONE)
             )
             .addInterceptor(tokenInterceptor)
-            .connectTimeout(10, TimeUnit.SECONDS)
-            .readTimeout(10, TimeUnit.SECONDS)
+            .connectTimeout(15, TimeUnit.SECONDS)
+            .readTimeout(15, TimeUnit.SECONDS)
             .build()
     }
 

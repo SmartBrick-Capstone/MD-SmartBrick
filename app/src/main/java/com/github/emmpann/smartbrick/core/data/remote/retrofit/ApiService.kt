@@ -2,20 +2,18 @@ package com.github.emmpann.smartbrick.core.data.remote.retrofit
 
 import com.github.emmpann.smartbrick.core.data.remote.request.LoginRequest
 import com.github.emmpann.smartbrick.core.data.remote.request.RegisterRequest
-import com.github.emmpann.smartbrick.core.data.remote.request.SendOtpRequest
 import com.github.emmpann.smartbrick.core.data.remote.request.VerifyOtpRequest
 import com.github.emmpann.smartbrick.core.data.remote.response.ArticleResponse
 import com.github.emmpann.smartbrick.core.data.remote.response.DetailArticleResponse
-import com.github.emmpann.smartbrick.core.data.remote.response.ImageResponse
+import com.github.emmpann.smartbrick.core.data.remote.response.PredictResponse
 import com.github.emmpann.smartbrick.core.data.remote.response.LoginResponse
 import com.github.emmpann.smartbrick.core.data.remote.response.RegisterResponse
 import com.github.emmpann.smartbrick.core.data.remote.response.SendOtpResponse
 import com.github.emmpann.smartbrick.core.data.remote.response.VerifyOtpResponse
 import okhttp3.MultipartBody
 import retrofit2.http.Body
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
+import retrofit2.http.Headers
 import retrofit2.http.Multipart
 import retrofit2.http.POST
 import retrofit2.http.Part
@@ -44,8 +42,9 @@ interface ApiService {
         @Path("slug") slug: String,
     ): DetailArticleResponse
 
-    @POST("image")
-    suspend fun uploadImage(
+    @Multipart
+    @POST("predict")
+    suspend fun predictImage(
         @Part file: MultipartBody.Part,
-    ): ImageResponse
+    ): PredictResponse
 }

@@ -1,6 +1,7 @@
 package com.github.emmpann.smartbrick.core.data.repository
 
-import com.github.emmpann.smartbrick.core.data.remote.response.LoginResponse
+import android.util.Log
+import com.github.emmpann.smartbrick.core.data.remote.response.PredictResponse
 import com.github.emmpann.smartbrick.core.data.remote.response.ResultApi
 import com.github.emmpann.smartbrick.core.data.remote.retrofit.ApiService
 import com.google.gson.Gson
@@ -17,22 +18,22 @@ import java.io.File
 class ImageRepository(
     private val apiService: ApiService
 ) {
-    fun uploadImage(imageFile: File) = flow {
+    fun predictImage(imageFile: File) = flow {
         try {
 
-            val requestImageFile = imageFile.asRequestBody("image/jpeg".toMediaType())
+            val requestImageFile = imageFile.asRequestBody("image/jpg".toMediaType())
             val multipartBody = MultipartBody.Part.createFormData(
-                "photo",
+                "image",
                 imageFile.name,
                 requestImageFile
             )
 
-            val successResponse = apiService.uploadImage(multipartBody)
+            val successResponse = apiService.predictImage(multipartBody)
             emit(ResultApi.Success(successResponse))
-        } catch (e: HttpException) {
-            val errorBody = e.response()?.errorBody()?.string()
-            val errorResponse = Gson().fromJson(errorBody, LoginResponse::class.java) //TODO change the response
-            emit(ResultApi.Error(errorResponse.message))
+        } catch (e: Exception) {
+//            val errorBody = e.response()?.errorBody()?.string()
+//            val errorResponse = Gson().fromJson(errorBody, PredictResponse::class.java)
+            emit(ResultApi.Error(e.message.toString()))
         }
     }.onStart {
         emit(ResultApi.Loading)

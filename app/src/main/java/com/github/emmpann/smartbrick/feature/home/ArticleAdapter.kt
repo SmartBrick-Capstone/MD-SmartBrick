@@ -1,5 +1,7 @@
 package com.github.emmpann.smartbrick.feature.home
 
+import android.os.Build
+import android.text.Html
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -31,7 +33,11 @@ class ArticleAdapter : RecyclerView.Adapter<ArticleAdapter.ViewHolder>() {
         fun bind(article: Article) {
             with(binding) {
                 tvArticleTitle.text = article.title
-                tvArticleDesc.text = article.content
+                tvArticleDesc.text = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    Html.fromHtml(article.content, Html.FROM_HTML_MODE_COMPACT)
+                } else {
+                    Html.fromHtml(article.content)
+                }
                 Glide.with(binding.root.context)
                     .load(article.image)
                     .into(ivArticle)

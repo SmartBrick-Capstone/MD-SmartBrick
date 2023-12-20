@@ -2,12 +2,18 @@ package com.github.emmpann.smartbrick.core.util
 
 import android.content.ContentValues
 import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.graphics.Matrix
 import android.net.Uri
 import android.os.Build
 import android.os.Environment
 import android.provider.MediaStore
+import android.util.Log
 import androidx.core.content.FileProvider
+import androidx.exifinterface.media.ExifInterface
 import com.github.emmpann.smartbrick.BuildConfig
+import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileOutputStream
 import java.io.InputStream
@@ -18,6 +24,7 @@ import java.util.Locale
 object ImageUtil {
     private const val FILENAME_FORMAT = "yyyyMMdd_HHmmss"
     private val timeStamp: String = SimpleDateFormat(FILENAME_FORMAT, Locale.US).format(Date())
+    private const val MAXIMAL_SIZE = 1000000
 
     fun createCustomTempFile(context: Context): File {
         val filesDir = context.externalCacheDir
@@ -33,7 +40,63 @@ object ImageUtil {
         while (inputStream.read(buffer).also { length = it } > 0) outputStream.write(buffer, 0, length)
         outputStream.close()
         inputStream.close()
-        return myFile
+        return myFile.reduceFileImage()
+    }
+
+    private fun File.reduceFileImage(): File {
+        Log.d("reduce", "reducing..")
+        val file = this
+        val bitmap = BitmapFactory.decodeFile(file.path).getRotatedBitmap(file)
+        var compressQuality = 100
+        var streamLength: Int
+        run {  }
+        do {
+            val bmpStream = ByteArrayOutputStream()
+            bitmap.compress(Bitmap.CompressFormat.JPEG, compressQuality, bmpStream)
+            val bmpPicByteArray = bmpStream.toByteArray()
+            streamLength = bmpPicByteArray.size
+            compressQuality -= compressValue(streamLength)
+        } while (streamLength > MAXIMAL_SIZE)
+        bitmap.compress(Bitmap.CompressFormat.JPEG, compressQuality, FileOutputStream(file))
+        return file
+    }
+
+    private fun compressValue(streamLength: Int): Int = when {
+        streamLength > 7500000 -> 20
+        streamLength > 5000000 -> 15
+        streamLength > 2500000 -> 10
+        else -> 5
+    }
+
+    private fun Bitmap.getRotatedBitmap(file: File): Bitmap {
+        val orientation = ExifInterface(file).getAttributeInt(
+            ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_UNDEFINED
+        )
+        return when (orientation) {
+            ExifInterface.ORIENTATION_ROTATE_90 -> rotateImage(this, 90F)
+            ExifInterface.ORIENTATION_ROTATE_180 -> rotateImage(this, 180F)
+            ExifInterface.ORIENTATION_ROTATE_270 -> rotateImage(this, 270F)
+            else -> this
+        }
+    }
+
+    private fun rotateImage(source: Bitmap, angle: Float): Bitmap {
+        val matrix = Matrix()
+        matrix.postRotate(angle)
+        return Bitmap.createBitmap(
+            source, 0, 0, source.width, source.height, matrix, true
+        )
+    }
+
+    private fun getImageUriForPreQ(context: Context): Uri {
+        val filesDir = context.getExternalFilesDir(Environment.DIRECTORY_PICTURES)
+        val imageFile = File(filesDir, "/MyCamera/$timeStamp.jpg")
+        if (imageFile.parentFile?.exists() == false) imageFile.parentFile?.mkdir()
+        return FileProvider.getUriForFile(
+            context,
+            "${BuildConfig.APPLICATION_ID}.fileprovider",
+            imageFile
+        )
     }
 
     fun getImageUri(context: Context): Uri {
@@ -50,16 +113,5 @@ object ImageUtil {
             )
         }
         return uri ?: getImageUriForPreQ(context)
-    }
-
-    private fun getImageUriForPreQ(context: Context): Uri {
-        val filesDir = context.getExternalFilesDir(Environment.DIRECTORY_PICTURES)
-        val imageFile = File(filesDir, "/MyCamera/$timeStamp.jpg")
-        if (imageFile.parentFile?.exists() == false) imageFile.parentFile?.mkdir()
-        return FileProvider.getUriForFile(
-            context,
-            "${BuildConfig.APPLICATION_ID}.fileprovider",
-            imageFile
-        )
     }
 }

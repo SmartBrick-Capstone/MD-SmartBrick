@@ -80,4 +80,6 @@
     <string name="your_account_has_been_verified">Akun Anda sudah diverifikasi</string>
     <string name="failed">Gagal</string>
     <string name="success">Berhasil</string>
+    <string name="please_verified_you_account">Please verified you account</string>
+    <string name="feature_is_under_construction">Feature is under construction</string>
 </resources>

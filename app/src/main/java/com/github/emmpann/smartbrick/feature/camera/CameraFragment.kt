@@ -27,6 +27,7 @@ import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.github.emmpann.smartbrick.R
+import com.github.emmpann.smartbrick.core.data.remote.response.ResultApi
 import com.github.emmpann.smartbrick.core.util.CameraUtil.CAMERA_BUNDLE_KEY
 import com.github.emmpann.smartbrick.core.util.CameraUtil.CAMERA_REQUEST_KEY
 import com.github.emmpann.smartbrick.core.util.ImageUtil.createCustomTempFile
@@ -52,7 +53,6 @@ class CameraFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-        // Inflate the layout for this fragment
         binding = FragmentCameraBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
@@ -80,8 +80,6 @@ class CameraFragment : Fragment() {
                 binding.btnFlash.setImageResource(R.drawable.ic_flash)
                 ImageCapture.FLASH_MODE_OFF
             }
-
-//            Log.d("CameraX", "Flash Mode: ${imageCapture?.flashMode}")
         }
     }
 
@@ -155,7 +153,7 @@ class CameraFragment : Fragment() {
                 override fun onImageSaved(output: ImageCapture.OutputFileResults) {
                     Toast.makeText(
                         requireContext(),
-                        "Berhasil mengambil gambar.",
+                        getString(R.string.success_take_photo),
                         Toast.LENGTH_SHORT
                     ).show()
 
@@ -163,12 +161,14 @@ class CameraFragment : Fragment() {
                         CameraFragmentDirections.actionCameraFragmentToDetailFragment()
                     toDetailFragment.imageUri = output.savedUri.toString()
                     findNavController().navigate(toDetailFragment)
+//                    Log.d("image", "${photoFile.path}, ${photoFile.name}")
+//                    viewModel.uploadImage(photoFile)
                 }
 
                 override fun onError(exception: ImageCaptureException) {
                     Toast.makeText(
                         requireContext(),
-                        "Gagal mengambil gambar.",
+                        getString(R.string.failed_take_photo),
                         Toast.LENGTH_SHORT
                     ).show()
                 }

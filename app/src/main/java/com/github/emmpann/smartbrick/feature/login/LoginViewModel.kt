@@ -20,7 +20,7 @@ class LoginViewModel @Inject constructor(
 ) : ViewModel() {
     private val _loginResponse = MutableLiveData<ResultApi<LoginResponse>>()
 
-    val loginResponse: LiveData<ResultApi<LoginResponse>> = _loginResponse
+    val loginResponse: LiveData<ResultApi<LoginResponse>> get() = _loginResponse
 
     fun login(email: String, password: String) = viewModelScope.launch {
         userRepository.login(email, password).collect {

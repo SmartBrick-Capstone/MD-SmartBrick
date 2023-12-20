@@ -11,7 +11,7 @@
         android:id="@+id/btn_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:src="@drawable/ic_back_black"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,6 +37,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
-        tools:listitem="@layout/history_item"/>
+        tools:listitem="@layout/history_item" />
+
+    <TextView
+        android:id="@+id/tv_unverified_account"
+        style="@style/TextAppearance.Material3.TitleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/please_verified_you_account"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/homeFragment"
-        android:icon="@drawable/ic_home"
+        android:icon="@drawable/round_home_24"
         android:title="@string/home" />
 
     <item
@@ -14,7 +14,7 @@
 
     <item
         android:id="@+id/profileFragment"
-        android:icon="@drawable/ic_user"
+        android:icon="@drawable/round_person_24"
         android:title="@string/profile" />
 
 </menu>

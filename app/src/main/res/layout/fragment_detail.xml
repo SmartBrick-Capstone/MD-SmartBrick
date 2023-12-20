@@ -13,14 +13,20 @@
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            app:title="@string/scanning_result"
-            
-            app:titleCentered="true"
-            app:navigationIcon="@drawable/ic_back_black"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:titleCentered="true">
+
+            <TextView
+                style="@style/TextAppearance.Material3.TitleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/scanning_result"
+                android:textStyle="bold" />
+        </com.google.android.material.appbar.MaterialToolbar>
 
         <ImageView
             android:id="@+id/iv_detail_plastic_result"
@@ -56,19 +62,37 @@
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="16dp"
             android:text="Sampah tersebut bisa dijadikan Ecobrick"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/iv_detail_plastic_result" />
 
         <TextView
-            android:id="@+id/textView15"
+            android:id="@+id/tv_step_ecobrick"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="@string/step_ecobrick"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="@id/tv_result_title"
             app:layout_constraintStart_toStartOf="@+id/tv_result_title"
             app:layout_constraintTop_toBottomOf="@+id/tv_result_title" />
+
+        <TextView
+            android:id="@+id/tv_notvalid_ecobrick_waste"
+            style="@style/TextAppearance.Material3.TitleLarge"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginVertical="16dp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@id/btn_back"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_detail_plastic_result"
+            tools:text="this waste is not suitable of ecobrick"
+            tools:visibility="visible" />
 
         <Button
             android:id="@+id/btn_back"
@@ -80,47 +104,47 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView15" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_step_ecobrick" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-<!--    <ImageView-->
-<!--        android:id="@+id/ic_back"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginStart="16dp"-->
-<!--        android:layout_marginTop="32dp"-->
-<!--        android:src="@drawable/ic_back_black"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
+    <!--    <ImageView-->
+    <!--        android:id="@+id/ic_back"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginStart="16dp"-->
+    <!--        android:layout_marginTop="32dp"-->
+    <!--        android:src="@drawable/ic_back_black"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent" />-->
 
-<!--    <TextView-->
-<!--        android:id="@+id/textView3"-->
-<!--        style="@style/TextAppearance.Material3.TitleLarge"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="32dp"-->
-<!--        android:text="@string/scanning_result"-->
-<!--        android:textStyle="bold"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
+    <!--    <TextView-->
+    <!--        android:id="@+id/textView3"-->
+    <!--        style="@style/TextAppearance.Material3.TitleLarge"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="32dp"-->
+    <!--        android:text="@string/scanning_result"-->
+    <!--        android:textStyle="bold"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent" />-->
 
-<!--    <androidx.core.widget.NestedScrollView-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:fillViewport="true"-->
-<!--        app:layout_constraintBottom_toTopOf="@+id/btn_back"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/textView3">-->
+    <!--    <androidx.core.widget.NestedScrollView-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:fillViewport="true"-->
+    <!--        app:layout_constraintBottom_toTopOf="@+id/btn_back"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/textView3">-->
 
-<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content">-->
+    <!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content">-->
 
-<!--            -->
-<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
-<!--    </androidx.core.widget.NestedScrollView>-->
+    <!--            -->
+    <!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+    <!--    </androidx.core.widget.NestedScrollView>-->
 
     <!--    <com.google.android.material.card.MaterialCardView-->
     <!--        android:id="@+id/card_result_container"-->
@@ -142,7 +166,6 @@
     <!--            android:text="Ikuti langkah selanjutnya untuk membuat Ecobrick"-->
     <!--            android:textStyle="bold" />-->
     <!--    </com.google.android.material.card.MaterialCardView>-->
-
 
 
     <!--    <Button-->

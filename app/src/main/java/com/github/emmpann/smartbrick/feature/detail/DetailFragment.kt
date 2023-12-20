@@ -17,10 +17,13 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.github.emmpann.smartbrick.R
+import com.github.emmpann.smartbrick.core.data.remote.response.ResultApi
 import com.github.emmpann.smartbrick.core.util.ImageUtil
 import com.github.emmpann.smartbrick.databinding.FailedScanDialogBinding
 import com.github.emmpann.smartbrick.databinding.FragmentDetailBinding
+import com.github.emmpann.smartbrick.databinding.LayoutLoadingBinding
 import com.github.emmpann.smartbrick.databinding.SuccessScanDialogBinding
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -41,41 +44,55 @@ class DetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-
         setClickListener()
         setupObserver()
     }
 
     private fun setupObserver() {
-        with(viewModel) {
-            setCurrentImage(DetailFragmentArgs.fromBundle(arguments as Bundle).imageUri.toUri())
 
-            currentImageUri.value?.let {
-                lifecycleScope.launch {
-                    showImage(it)
+        viewModel.imageUploadResponse.observe(viewLifecycleOwner) {
+            when (it) {
+                is ResultApi.Success -> {
+                    scanLoading(false)
+                    if (it.data.prediction == "Benda ini layak dijadikan eco-brick") {
+                        showSuccessDialog()
+                        binding.tvResultTitle.visibility = View.VISIBLE
+                        binding.tvStepEcobrick.visibility = View.VISIBLE
+                        binding.tvResultTitle.text = it.data.prediction
+                    } else {
+                        // benda tidak layak
+                        showFailedDialog()
+                        binding.tvNotvalidEcobrickWaste.visibility = View.VISIBLE
+                        binding.tvNotvalidEcobrickWaste.text = it.data.prediction
+                    }
+                }
 
-                    val imageFile = ImageUtil.uriToFile(it, requireContext())
-                    uploadImage(imageFile)
+                is ResultApi.Error -> {
+                    scanLoading(false)
+                    showErrorDialog(it.error)
+                }
+
+                is ResultApi.Loading -> {
+                    scanLoading(true)
                 }
             }
+        }
 
-            imageUploadResponse.observe(viewLifecycleOwner) {
+        viewModel.setCurrentImage(DetailFragmentArgs.fromBundle(arguments as Bundle).imageUri.toUri())
 
+        viewModel.currentImageUri.value?.let {
+            lifecycleScope.launch {
+                showImage(it)
+                val imageFile = ImageUtil.uriToFile(it, requireContext())
+                Log.d("reduce2", "hit this")
+                viewModel.uploadImage(imageFile)
             }
         }
-        showFailedDialog(true)
     }
 
     private fun setClickListener() {
-        with(binding) {
-//            icBack.setOnClickListener {
-//                findNavController().popBackStack()
-//            }
-
-            btnBack.setOnClickListener {
-                findNavController().navigate(R.id.action_detailFragment_to_scanFragment)
-            }
+        binding.btnBack.setOnClickListener {
+            findNavController().navigate(R.id.action_detailFragment_to_scanFragment)
         }
     }
 
@@ -94,15 +111,19 @@ class DetailFragment : Fragment() {
         binding.ivDetailPlasticResult.setImageBitmap(bitmap)
     }
 
-    fun showLoading(isLoading: Boolean) {
+    private fun scanLoading(isLoading: Boolean) {
+        binding.loadingScan.visibility = if (isLoading) View.VISIBLE else View.GONE
+    }
+
+    private fun showLoading(isLoading: Boolean) {
         if (::dialog.isInitialized.not()) {
             dialog = Dialog(requireContext(), R.style.Dialog_Loading)
-            val dialogBinding = SuccessScanDialogBinding.inflate(layoutInflater)
+            val dialogBinding = LayoutLoadingBinding.inflate(layoutInflater)
             dialog.setContentView(dialogBinding.root)
             dialog.window?.apply {
                 setLayout(
-                    ConstraintLayout.LayoutParams.WRAP_CONTENT,
-                    ConstraintLayout.LayoutParams.WRAP_CONTENT,
+                    ConstraintLayout.LayoutParams.MATCH_PARENT,
+                    ConstraintLayout.LayoutParams.MATCH_PARENT,
                 )
             }
         }
@@ -110,7 +131,7 @@ class DetailFragment : Fragment() {
         if (isLoading) dialog.show() else dialog.hide()
     }
 
-    private fun showSuccessDialog(isShow: Boolean) {
+    private fun showSuccessDialog() {
         if (::dialog.isInitialized.not()) {
             dialog = Dialog(requireContext(), R.style.Dialog_Loading)
             val dialogBinding = SuccessScanDialogBinding.inflate(layoutInflater)
@@ -125,11 +146,10 @@ class DetailFragment : Fragment() {
                 dialog.dismiss()
             }
         }
-
-        if (isShow) dialog.show() else dialog.hide()
+        dialog.show()
     }
 
-    private fun showFailedDialog(isShow: Boolean) {
+    private fun showFailedDialog() {
         if (::dialog.isInitialized.not()) {
             dialog = Dialog(requireContext(), R.style.Dialog_Loading)
             val dialogBinding = FailedScanDialogBinding.inflate(layoutInflater)
@@ -145,6 +165,15 @@ class DetailFragment : Fragment() {
             }
         }
 
-        if (isShow) dialog.show() else dialog.hide()
+        dialog.show()
+    }
+
+    private fun showErrorDialog(message: String) {
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle(getString(R.string.error))
+            .setMessage(message)
+            .setPositiveButton(getString(R.string.ok)) { dialog, which ->
+
+            }.show()
     }
 }

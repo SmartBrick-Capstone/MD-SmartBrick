@@ -51,29 +51,34 @@ class HistoryFragment : Fragment() {
         )
         historyAdapter = HistoryAdapter()
         binding.rvHistory.adapter = historyAdapter
-//        historyAdapter.setOnItemClickCallback(object : ArticleAdapter.OnItemClickCallback {
-//            override fun onItemClicked(article: Article) {
-//                val toDetailArticle =
-//                    HomeFragmentDirections.actionHomeFragmentToDetailArticleFragment()
-//                toDetailArticle.articleSlug = article.slug
-//                findNavController().navigate(toDetailArticle)
-//            }
-//        })
     }
 
     private fun setupObserver() {
-        viewModel.history.observe(viewLifecycleOwner) {
-            when (it) {
-                is ResultApi.Success -> {
-                    historyAdapter.submitList(it.data)
+        viewModel.isVerified.observe(viewLifecycleOwner) { isVerified ->
+            if (isVerified) {
+                viewModel.history.observe(viewLifecycleOwner) {
+                    when (it) {
+                        is ResultApi.Success -> {
+                            with(binding) {
+                                rvHistory.visibility = View.GONE
+                                tvUnverifiedAccount.visibility = View.VISIBLE
+                                tvUnverifiedAccount.text = getString(R.string.feature_is_under_construction)
+                            }
+                        }
+
+                        is ResultApi.Loading -> {
+
+                        }
+
+                        is ResultApi.Error -> {
+
+                        }
+                    }
                 }
-
-                is ResultApi.Loading -> {
-
-                }
-
-                is ResultApi.Error -> {
-
+            } else {
+                with(binding) {
+                    rvHistory.visibility = View.GONE
+                    tvUnverifiedAccount.visibility = View.VISIBLE
                 }
             }
         }

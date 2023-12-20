@@ -76,9 +76,6 @@ class MainActivity : AppCompatActivity() {
                 }
             }
 
-//            Log.d("isShow login", supportFragmentManager.findFragmentById(R.id.loginFragment)?.isVisible.toString())
-//            Log.d("isShow home", supportFragmentManager.findFragmentById(R.id.homeFragment)?.isVisible.toString())
-//            Log.d("isShow onBoarding", supportFragmentManager.findFragmentById(R.id.onBoardingFragment)?.isVisible.toString())
             viewModel.viewModelScope.launch {
                 delay(500)
                 splashScreen.setKeepOnScreenCondition{ false }

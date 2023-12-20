@@ -5,25 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!--    <com.google.android.material.appbar.MaterialToolbar-->
-    <!--        android:id="@+id/materialToolbar"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:background="@drawable/topbar_shape"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toTopOf="parent">-->
-
-    <!--        <TextView-->
-    <!--            style="@style/TextAppearance.Material3.TitleMedium"-->
-    <!--            android:textColor="@color/md_theme_light_onPrimary"-->
-    <!--            android:layout_width="wrap_content"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:layout_gravity="center"-->
-    <!--            android:text="@string/scan_picture"-->
-    <!--            android:textStyle="bold" />-->
-    <!--    </com.google.android.material.appbar.MaterialToolbar>-->
-
     <TextView
         android:id="@+id/textView3"
         style="@style/TextAppearance.Material3.TitleLarge"
@@ -71,7 +52,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
-        android:drawableLeft="@drawable/ic_camera"
+        android:drawableLeft="@drawable/ic_camera_white"
         android:text="@string/scan_picture"
         app:iconGravity="start"
         app:layout_constraintBottom_toTopOf="@id/btn_gallery"

@@ -1,6 +1,8 @@
 package com.github.emmpann.smartbrick.feature.article
 
+import android.os.Build
 import android.os.Bundle
+import android.text.Html
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -46,7 +48,11 @@ class DetailArticleFragment : Fragment() {
                 is ResultApi.Success -> {
                     with(binding) {
                         tvDetailArticleTitle.text = it.data.listArticle.title
-                        tvDetailArticleDesc.text = it.data.listArticle.content
+                        tvDetailArticleDesc.text = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                            Html.fromHtml(it.data.listArticle.content, Html.FROM_HTML_MODE_COMPACT)
+                        } else {
+                            Html.fromHtml(it.data.listArticle.content)
+                        }
                         tvDetailArticleDate.text = it.data.listArticle.date
                         Glide.with(requireContext()).load(it.data.listArticle.image).into(ivDetailArticle)
                     }
