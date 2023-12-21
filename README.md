@@ -13,6 +13,6 @@ Follow these steps to replicate the project:
 - Prerequisite
 1. Android Studio
 2. Java Development Kit (JDK)
-Clone this Project
---link--
+## Clone this Project
+git@github.com:SmartBrick-Capstone/MD-SmartBrick.git
 # Dependencies
