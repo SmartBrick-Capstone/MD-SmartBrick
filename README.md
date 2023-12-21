@@ -8,14 +8,13 @@ Smart Brick is an Android App that serves some features such as plastic clasifyi
 ```
 # Tech Used
 The app developed with: 
-
-    1.  Android Studio
-    2. Kotlin
+1. Android Studio
+2. Kotlin
 # Steps to Replicate
 Follow these steps to replicate the project:
 ### Prerequisite
-    1. Android Studio
-    2. Java Development Kit (JDK)
+1. IDE (Android Studio/Intellij Idea)
+2. Java Development Kit (JDK)
 ## Clone this Project
 ```
 git@github.com:SmartBrick-Capstone/MD-SmartBrick.git
