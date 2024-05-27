@@ -3,7 +3,7 @@ The repository constains Android App which is implemented with xml for the layou
 # Introduction
 Smart Brick is an Android App that serves some features such as plastic clasifying and instructions to building nice Ecobrick.
 # Application Demo Video
-https://github.com/SmartBrick-Capstone/MD-SmartBrick/assets/87558302/26990228-267f-47ae-9352-bb2ba9c3ca14
+https://github.com/SmartBrick-Capstone/MD-SmartBrick/assets/87558302/8083ca0a-185c-4812-bc69-0327e3c94f33
 ## Download APK Link
 ```
 https://drive.google.com/file/d/1zc3szm1V7_kMJ5vp4OXTWWGt6vgKYdD2/view?usp=sharing
